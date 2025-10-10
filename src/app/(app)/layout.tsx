@@ -1,3 +1,4 @@
+
 import Link from 'next/link';
 import { BarChart, HeartPulse, LayoutDashboard, PanelLeft, Search } from 'lucide-react';
 import { user } from '@/lib/data';
@@ -35,28 +36,28 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
           <SidebarContent>
             <SidebarMenu>
               <SidebarMenuItem>
-                <Link href="/dashboard" legacyBehavior passHref>
-                  <SidebarMenuButton tooltip="Dashboard">
-                    <LayoutDashboard />
-                    <span>Dashboard</span>
-                  </SidebarMenuButton>
-                </Link>
+                <SidebarMenuButton tooltip="Dashboard" asChild>
+                    <Link href="/dashboard">
+                        <LayoutDashboard />
+                        <span>Dashboard</span>
+                    </Link>
+                </SidebarMenuButton>
               </SidebarMenuItem>
               <SidebarMenuItem>
-                <Link href="/workouts" legacyBehavior passHref>
-                  <SidebarMenuButton tooltip="Workouts">
-                    <HeartPulse />
-                    <span>Workouts</span>
-                  </SidebarMenuButton>
-                </Link>
+                <SidebarMenuButton tooltip="Workouts" asChild>
+                    <Link href="/workouts">
+                        <HeartPulse />
+                        <span>Workouts</span>
+                    </Link>
+                </SidebarMenuButton>
               </SidebarMenuItem>
               <SidebarMenuItem>
-                <Link href="/reports" legacyBehavior passHref>
-                  <SidebarMenuButton tooltip="Reports">
-                    <BarChart />
-                    <span>Reports</span>
-                  </SidebarMenuButton>
-                </Link>
+                <SidebarMenuButton tooltip="Reports" asChild>
+                    <Link href="/reports">
+                        <BarChart />
+                        <span>Reports</span>
+                    </Link>
+                </SidebarMenuButton>
               </SidebarMenuItem>
             </SidebarMenu>
           </SidebarContent>
