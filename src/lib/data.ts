@@ -1,4 +1,4 @@
-import type { User, WorkoutHistory, WorkoutCategory, Exercise, ReportData } from './types';
+import type { User, WorkoutHistory, WorkoutCategory, Exercise, ReportData, Challenge } from './types';
 import { PlaceHolderImages } from './placeholder-images';
 
 export const user: User = {
@@ -151,4 +151,46 @@ export const monthlyReport: ReportData[] = [
     { date: 'Week 2', 'Workout Time': 310, 'Calories Burnt': 3100, Steps: 48000 },
     { date: 'Week 3', 'Workout Time': 290, 'Calories Burnt': 2900, Steps: 45000 },
     { date: 'Week 4', 'Workout Time': 350, 'Calories Burnt': 3500, Steps: 52000 },
+];
+
+export const challenges: Challenge[] = [
+  {
+    id: 'steps-challenge-1',
+    title: 'The 50,000 Steps Challenge',
+    description: 'Walk 50,000 steps this week to complete the challenge.',
+    metric: 'Steps',
+    goal: 50000,
+    participants: 128,
+    image: {
+      id: 'steps-challenge',
+      url: getImageUrl('steps-challenge')?.imageUrl ?? '',
+      hint: getImageUrl('steps-challenge')?.imageHint ?? '',
+    },
+  },
+  {
+    id: 'calories-challenge-1',
+    title: 'The 3,000 Calories Burnt Challenge',
+    description: 'Burn 3,000 calories this week through any activity.',
+    metric: 'Calories Burnt',
+    goal: 3000,
+    participants: 76,
+    image: {
+      id: 'calories-challenge',
+      url: getImageUrl('calories-challenge')?.imageUrl ?? '',
+      hint: getImageUrl('calories-challenge')?.imageHint ?? '',
+    },
+  },
+  {
+    id: 'workout-time-challenge-1',
+    title: 'The 5-Hour Workout Challenge',
+    description: 'Log 300 minutes of workout time this week.',
+    metric: 'Workout Time',
+    goal: 300,
+    participants: 92,
+    image: {
+      id: 'workout-time-challenge',
+      url: getImageUrl('workout-time-challenge')?.imageUrl ?? '',
+      hint: getImageUrl('workout-time-challenge')?.imageHint ?? '',
+    },
+  },
 ];

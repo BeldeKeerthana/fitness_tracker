@@ -35,6 +35,24 @@
       "description": "User avatar placeholder",
       "imageUrl": "https://picsum.photos/seed/avatar/200/200",
       "imageHint": "person portrait"
+    },
+    {
+      "id": "steps-challenge",
+      "description": "People hiking in the mountains.",
+      "imageUrl": "https://picsum.photos/seed/challenge1/400/300",
+      "imageHint": "hiking steps"
+    },
+    {
+      "id": "calories-challenge",
+      "description": "A high-intensity workout session.",
+      "imageUrl": "https://picsum.photos/seed/challenge2/400/300",
+      "imageHint": "intense workout"
+    },
+    {
+      "id": "workout-time-challenge",
+      "description": "A person looking at their fitness watch.",
+      "imageUrl": "https://picsum.photos/seed/challenge3/400/300",
+      "imageHint": "fitness watch"
     }
   ]
 }

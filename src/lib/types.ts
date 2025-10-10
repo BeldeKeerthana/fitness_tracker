@@ -45,3 +45,17 @@ export type ReportData = {
   'Calories Burnt': number;
   Steps: number;
 };
+
+export type Challenge = {
+  id: string;
+  title: string;
+  description: string;
+  metric: 'Steps' | 'Calories Burnt' | 'Workout Time';
+  goal: number;
+  participants: number;
+  image: {
+    id: string;
+    url: string;
+    hint: string;
+  };
+};
