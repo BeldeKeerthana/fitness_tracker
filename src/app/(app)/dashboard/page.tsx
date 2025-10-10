@@ -3,11 +3,13 @@ import { Suspense } from 'react';
 import WelcomeHeader from '@/components/dashboard/welcome-header';
 import StatCard from '@/components/dashboard/stat-card';
 import WorkoutHistory from '@/components/dashboard/workout-history';
-import { Bed, Flame, Footprints, Heart, GlassWater } from 'lucide-react';
+import { Bed, Flame, Footprints, Heart, GlassWater, Activity } from 'lucide-react';
 import type { Stat } from '@/lib/types';
 import { Skeleton } from '@/components/ui/skeleton';
 import { user } from '@/lib/data';
 import WaterIntakeCard from '@/components/dashboard/water-intake-card';
+import DailySummary from '@/components/dashboard/daily-summary';
+import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
 
 const stats: Stat[] = [
     {
@@ -45,7 +47,35 @@ function WelcomeHeaderSkeleton() {
   );
 }
 
+function DailySummarySkeleton() {
+    return (
+        <Card className="lg:col-span-3">
+            <CardHeader>
+                <CardTitle className="flex items-center gap-2 font-headline">
+                    <Activity />
+                    Daily Health Summary
+                </CardTitle>
+                <CardDescription>
+                    Here is a summary of your activity and AI-powered suggestions.
+                </CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-4">
+                <Skeleton className="h-4 w-3/4" />
+                <Skeleton className="h-4 w-1/2" />
+                <Skeleton className="h-4 w-full" />
+                <Skeleton className="h-4 w-2/3" />
+            </CardContent>
+        </Card>
+    )
+}
+
 export default function DashboardPage() {
+  const dailyData = {
+    sleep: stats.find(s => s.title === 'Sleep')?.value ?? 'N/A',
+    steps: stats.find(s => s.title === 'Steps')?.value ?? 'N/A',
+    water: '5 glasses', // Example data, will be dynamic later
+  };
+
   return (
     <div className="flex-1 space-y-4">
       <Suspense fallback={<WelcomeHeaderSkeleton />}>
@@ -56,12 +86,15 @@ export default function DashboardPage() {
           <StatCard key={stat.title} stat={stat} />
         ))}
       </div>
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7">
-        <div className="lg:col-span-2">
-            <WaterIntakeCard />
-        </div>
-        <div className="lg:col-span-5">
+      <div className="grid gap-4 md:grid-cols-1 lg:grid-cols-7">
+        <div className="lg:col-span-4 grid gap-4">
+            <Suspense fallback={<DailySummarySkeleton />}>
+                <DailySummary data={dailyData} />
+            </Suspense>
             <WorkoutHistory />
+        </div>
+        <div className="lg:col-span-3">
+            <WaterIntakeCard />
         </div>
       </div>
     </div>

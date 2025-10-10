@@ -1,6 +1,6 @@
 
 import Link from 'next/link';
-import { BarChart, HeartPulse, LayoutDashboard, PanelLeft, Search, Timer, Trophy } from 'lucide-react';
+import { BarChart, HeartPulse, LayoutDashboard, PanelLeft, Search, Timer, Trophy, Target } from 'lucide-react';
 import { user } from '@/lib/data';
 
 import {
@@ -36,43 +36,51 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
           <SidebarContent>
             <SidebarMenu>
               <SidebarMenuItem>
-                <Link href="/dashboard">
-                    <SidebarMenuButton tooltip="Dashboard">
-                        <LayoutDashboard />
-                        <span>Dashboard</span>
-                    </SidebarMenuButton>
+                <Link href="/dashboard" passHref legacyBehavior>
+                  <SidebarMenuButton asChild tooltip="Dashboard">
+                    <LayoutDashboard />
+                    <span>Dashboard</span>
+                  </SidebarMenuButton>
                 </Link>
               </SidebarMenuItem>
               <SidebarMenuItem>
-                <Link href="/workouts">
-                    <SidebarMenuButton tooltip="Workouts">
-                        <HeartPulse />
-                        <span>Workouts</span>
-                    </SidebarMenuButton>
+                <Link href="/workouts" passHref legacyBehavior>
+                  <SidebarMenuButton asChild tooltip="Workouts">
+                    <HeartPulse />
+                    <span>Workouts</span>
+                  </SidebarMenuButton>
                 </Link>
               </SidebarMenuItem>
               <SidebarMenuItem>
-                <Link href="/challenges">
-                  <SidebarMenuButton tooltip="Challenges">
+                <Link href="/challenges" passHref legacyBehavior>
+                  <SidebarMenuButton asChild tooltip="Challenges">
                     <Trophy />
                     <span>Challenges</span>
                   </SidebarMenuButton>
                 </Link>
               </SidebarMenuItem>
               <SidebarMenuItem>
-                <Link href="/log-workout">
-                    <SidebarMenuButton tooltip="Log Workout">
-                        <Timer />
-                        <span>Log Workout</span>
-                    </SidebarMenuButton>
+                <Link href="/goals" passHref legacyBehavior>
+                  <SidebarMenuButton asChild tooltip="Goals">
+                    <Target />
+                    <span>Goals</span>
+                  </SidebarMenuButton>
                 </Link>
               </SidebarMenuItem>
               <SidebarMenuItem>
-                <Link href="/reports">
-                    <SidebarMenuButton tooltip="Reports">
-                        <BarChart />
-                        <span>Reports</span>
-                    </SidebarMenuButton>
+                <Link href="/log-workout" passHref legacyBehavior>
+                  <SidebarMenuButton asChild tooltip="Log Workout">
+                    <Timer />
+                    <span>Log Workout</span>
+                  </SidebarMenuButton>
+                </Link>
+              </SidebarMenuItem>
+              <SidebarMenuItem>
+                <Link href="/reports" passHref legacyBehavior>
+                  <SidebarMenuButton asChild tooltip="Reports">
+                    <BarChart />
+                    <span>Reports</span>
+                  </SidebarMenuButton>
                 </Link>
               </SidebarMenuItem>
             </SidebarMenu>
