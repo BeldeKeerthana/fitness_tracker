@@ -1,3 +1,40 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "hero-login",
+      "description": "A person working out, energetic and focused.",
+      "imageUrl": "https://picsum.photos/seed/1/1200/800",
+      "imageHint": "fitness workout"
+    },
+    {
+      "id": "cardio-workout",
+      "description": "A person running on a treadmill.",
+      "imageUrl": "https://picsum.photos/seed/2/400/300",
+      "imageHint": "cardio running"
+    },
+    {
+      "id": "strength-workout",
+      "description": "A person lifting weights.",
+      "imageUrl": "https://picsum.photos/seed/3/400/300",
+      "imageHint": "strength training"
+    },
+    {
+      "id": "balance-workout",
+      "description": "A person doing yoga.",
+      "imageUrl": "https://picsum.photos/seed/4/400/300",
+      "imageHint": "yoga balance"
+    },
+    {
+      "id": "legs-workout",
+      "description": "A person doing squats.",
+      "imageUrl": "https://picsum.photos/seed/5/400/300",
+      "imageHint": "leg workout"
+    },
+    {
+      "id": "user-avatar",
+      "description": "User avatar placeholder",
+      "imageUrl": "https://picsum.photos/seed/avatar/200/200",
+      "imageHint": "person portrait"
+    }
+  ]
 }
