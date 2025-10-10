@@ -1,4 +1,5 @@
-import type { User, WorkoutHistory, WorkoutCategory, Exercise, ReportData, Challenge } from './types';
+
+import type { User, WorkoutHistory, WorkoutCategory, Exercise, ReportData, Challenge, YogaPose } from './types';
 import { PlaceHolderImages } from './placeholder-images';
 
 export const user: User = {
@@ -193,4 +194,19 @@ export const challenges: Challenge[] = [
       hint: getImageUrl('workout-time-challenge')?.imageHint ?? '',
     },
   },
+];
+
+export const yogaPoses: YogaPose[] = [
+  { id: 'mountain-pose', title: 'Mountain Pose (Tadasana)', level: 'Basic', benefits: ['Improves posture', 'Strengthens thighs, knees, and ankles', 'Firms abdomen and buttocks'], videoUrl: 'https://www.youtube.com/embed/2HTc04Gg4-s', image: { id: 'yoga-mountain', url: getImageUrl('yoga-mountain')?.imageUrl ?? '', hint: getImageUrl('yoga-mountain')?.imageHint ?? '' } },
+  { id: 'downward-dog', title: 'Downward-Facing Dog (Adho Mukha Svanasana)', level: 'Basic', benefits: ['Energizes the body', 'Stretches the shoulders, hamstrings, calves, arches, and hands', 'Strengthens the arms and legs'], videoUrl: 'https://www.youtube.com/embed/j9se_GfGv40', image: { id: 'yoga-downward-dog', url: getImageUrl('yoga-downward-dog')?.imageUrl ?? '', hint: getImageUrl('yoga-downward-dog')?.imageHint ?? '' } },
+  { id: 'warrior-2', title: 'Warrior II (Virabhadrasana II)', level: 'Basic', benefits: ['Stretches and strengthens the legs and ankles', 'Stretches the groins, chest, and shoulders', 'Increases stamina'], videoUrl: 'https://www.youtube.com/embed/Y3_A01mY0mY', image: { id: 'yoga-warrior-2', url: getImageUrl('yoga-warrior-2')?.imageUrl ?? '', hint: getImageUrl('yoga-warrior-2')?.imageHint ?? '' } },
+  { id: 'tree-pose', title: 'Tree Pose (Vrikshasana)', level: 'Basic', benefits: ['Improves balance and stability', 'Strengthens the legs and core', 'Opens the hips'], videoUrl: 'https://www.youtube.com/embed/yVE4XXFFO7I', image: { id: 'yoga-tree', url: getImageUrl('yoga-tree')?.imageUrl ?? '', hint: getImageUrl('yoga-tree')?.imageHint ?? '' } },
+  { id: 'bridge-pose', title: 'Bridge Pose (Setu Bandhasana)', level: 'Basic', benefits: ['Stretches the chest, neck, and spine', 'Calms the brain and helps alleviate stress', 'Stimulates abdominal organs, lungs, and thyroid'], videoUrl: 'https://www.youtube.com/embed/NnbI80y1L1E', image: { id: 'yoga-bridge', url: getImageUrl('yoga-bridge')?.imageUrl ?? '', hint: getImageUrl('yoga-bridge')?.imageHint ?? '' } },
+  { id: 'triangle-pose', title: 'Triangle Pose (Trikonasana)', level: 'Intermediate', benefits: ['Stretches and strengthens the thighs, knees, and ankles', 'Stretches the hips, groins, hamstrings, and calves', 'Helps relieve stress'], videoUrl: 'https://www.youtube.com/embed/S6gB0Qc5cK4', image: { id: 'yoga-triangle', url: getImageUrl('yoga-triangle')?.imageUrl ?? '', hint: getImageUrl('yoga-triangle')?.imageHint ?? '' } },
+  { id: 'half-moon-pose', title: 'Half Moon Pose (Ardha Chandrasana)', level: 'Intermediate', benefits: ['Strengthens the abdomen, ankles, thighs, and buttocks', 'Stretches the groins, hamstrings, and calves', 'Improves coordination and sense of balance'], videoUrl: 'https://www.youtube.com/embed/8-9hQPEi1PA', image: { id: 'yoga-half-moon', url: getImageUrl('yoga-half-moon')?.imageUrl ?? '', hint: getImageUrl('yoga-half-moon')?.imageHint ?? '' } },
+  { id: 'pigeon-pose', title: 'Pigeon Pose (Eka Pada Rajakapotasana)', level: 'Intermediate', benefits: ['Stretches the thigh, groin, and psoas', 'Opens the hip joint', 'Reduces lower back pain and stiffness'], videoUrl: 'https://www.youtube.com/embed/iV3QYafv-E4', image: { id: 'yoga-pigeon', url: getImageUrl('yoga-pigeon')?.imageUrl ?? '', hint: getImageUrl('yoga-pigeon')?.imageHint ?? '' } },
+  { id: 'crow-pose', title: 'Crow Pose (Bakasana)', level: 'Hard', benefits: ['Strengthens arms and wrists', 'Stretches the upper back', 'Strengthens the abdominal muscles'], videoUrl: 'https://www.youtube.com/embed/u7srV2aW62I', image: { id: 'yoga-crow', url: getImageUrl('yoga-crow')?.imageUrl ?? '', hint: getImageUrl('yoga-crow')?.imageHint ?? '' } },
+  { id: 'headstand', title: 'Headstand (Sirsasana)', level: 'Hard', benefits: ['Calms the brain and helps relieve stress', 'Strengthens the arms, legs, and spine', 'Improves digestion'], videoUrl: 'https://www.youtube.com/embed/L3Yt6l2A4-I', image: { id: 'yoga-headstand', url: getImageUrl('yoga-headstand')?.imageUrl ?? '', hint: getImageUrl('yoga-headstand')?.imageHint ?? '' } },
+  { id: 'handstand', title: 'Handstand (Adho Mukha Vrksasana)', level: 'Hard', benefits: ['Builds shoulder, arm, and wrist strength', 'Improves balance', 'Increases circulation to the upper body'], videoUrl: 'https://www.youtube.com/embed/yS2nEMnb6y8', image: { id: 'yoga-handstand', url: getImageUrl('yoga-handstand')?.imageUrl ?? '', hint: getImageUrl('yoga-handstand')?.imageHint ?? '' } },
+  { id: 'lotus-pose', title: 'Lotus Pose (Padmasana)', level: 'Hard', benefits: ['Calms the brain', 'Stretches the ankles and knees', 'Keeps the spine straight'], videoUrl: 'https://www.youtube.com/embed/2Nqo-I42sok', image: { id: 'yoga-lotus', url: getImageUrl('yoga-lotus')?.imageUrl ?? '', hint: getImageUrl('yoga-lotus')?.imageHint ?? '' } }
 ];

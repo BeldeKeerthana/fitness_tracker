@@ -60,3 +60,16 @@ export type Challenge = {
     hint: string;
   };
 };
+
+export type YogaPose = {
+  id: string;
+  title: string;
+  level: 'Basic' | 'Intermediate' | 'Hard';
+  benefits: string[];
+  videoUrl: string;
+  image: {
+    id: string;
+    url: string;
+    hint: string;
+  };
+};

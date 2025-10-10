@@ -1,6 +1,6 @@
 
 import Link from 'next/link';
-import { BarChart, HeartPulse, LayoutDashboard, PanelLeft, Search, Timer, Trophy, Target, Watch } from 'lucide-react';
+import { BarChart, HeartPulse, LayoutDashboard, Lotus, Target, Timer, Trophy, Watch } from 'lucide-react';
 import { user } from '@/lib/data';
 
 import {
@@ -16,8 +16,6 @@ import {
   SidebarInset,
 } from '@/components/ui/sidebar';
 import { UserNav } from '@/components/user-nav';
-import { Button } from '@/components/ui/button';
-import { Input } from '@/components/ui/input';
 import Logo from '@/components/logo';
 
 export default function AppLayout({ children }: { children: React.ReactNode }) {
@@ -51,6 +49,16 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
                     <span>
                       <HeartPulse />
                       <span>Workouts</span>
+                    </span>
+                  </SidebarMenuButton>
+                </Link>
+              </SidebarMenuItem>
+              <SidebarMenuItem>
+                <Link href="/yoga">
+                  <SidebarMenuButton asChild tooltip="Yoga">
+                    <span>
+                      <Lotus />
+                      <span>Yoga</span>
                     </span>
                   </SidebarMenuButton>
                 </Link>

@@ -53,6 +53,78 @@
       "description": "A person looking at their fitness watch.",
       "imageUrl": "https://picsum.photos/seed/challenge3/400/300",
       "imageHint": "fitness watch"
+    },
+    {
+      "id": "yoga-mountain",
+      "description": "Mountain Pose",
+      "imageUrl": "https://picsum.photos/seed/yoga1/600/400",
+      "imageHint": "yoga mountain"
+    },
+    {
+      "id": "yoga-downward-dog",
+      "description": "Downward-Facing Dog",
+      "imageUrl": "https://picsum.photos/seed/yoga2/600/400",
+      "imageHint": "yoga dog"
+    },
+    {
+      "id": "yoga-warrior-2",
+      "description": "Warrior II",
+      "imageUrl": "https://picsum.photos/seed/yoga3/600/400",
+      "imageHint": "yoga warrior"
+    },
+    {
+      "id": "yoga-tree",
+      "description": "Tree Pose",
+      "imageUrl": "https://picsum.photos/seed/yoga4/600/400",
+      "imageHint": "yoga tree"
+    },
+    {
+      "id": "yoga-bridge",
+      "description": "Bridge Pose",
+      "imageUrl": "https://picsum.photos/seed/yoga5/600/400",
+      "imageHint": "yoga bridge"
+    },
+    {
+      "id": "yoga-triangle",
+      "description": "Triangle Pose",
+      "imageUrl": "https://picsum.photos/seed/yoga6/600/400",
+      "imageHint": "yoga triangle"
+    },
+    {
+      "id": "yoga-half-moon",
+      "description": "Half Moon Pose",
+      "imageUrl": "https://picsum.photos/seed/yoga7/600/400",
+      "imageHint": "yoga moon"
+    },
+    {
+      "id": "yoga-pigeon",
+      "description": "Pigeon Pose",
+      "imageUrl": "https://picsum.photos/seed/yoga8/600/400",
+      "imageHint": "yoga pigeon"
+    },
+    {
+      "id": "yoga-crow",
+      "description": "Crow Pose",
+      "imageUrl": "https://picsum.photos/seed/yoga9/600/400",
+      "imageHint": "yoga crow"
+    },
+    {
+      "id": "yoga-headstand",
+      "description": "Headstand",
+      "imageUrl": "https://picsum.photos/seed/yoga10/600/400",
+      "imageHint": "yoga headstand"
+    },
+    {
+      "id": "yoga-handstand",
+      "description": "Handstand",
+      "imageUrl": "https://picsum.photos/seed/yoga11/600/400",
+      "imageHint": "yoga handstand"
+    },
+    {
+      "id": "yoga-lotus",
+      "description": "Lotus Pose",
+      "imageUrl": "https://picsum.photos/seed/yoga12/600/400",
+      "imageHint": "yoga meditation"
     }
   ]
 }
