@@ -45,6 +45,12 @@ const nextConfig: NextConfig = {
         hostname: 'liforme.com',
         port: '',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'images.squarespace-cdn.com',
+        port: '',
+        pathname: '/**',
       }
     ],
   },
