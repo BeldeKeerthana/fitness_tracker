@@ -1,3 +1,4 @@
+
 import type {NextConfig} from 'next';
 
 const nextConfig: NextConfig = {
@@ -49,6 +50,12 @@ const nextConfig: NextConfig = {
       {
         protocol: 'https',
         hostname: 'images.squarespace-cdn.com',
+        port: '',
+        pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.theyogacollective.com',
         port: '',
         pathname: '/**',
       }
