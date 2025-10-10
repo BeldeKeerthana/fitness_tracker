@@ -5,11 +5,12 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { useTimer } from '@/hooks/use-timer';
 import { Play, Square, Timer } from 'lucide-react';
-import { toast } from '@/hooks/use-toast';
+import { useToast } from '@/hooks/use-toast';
 
 
 export default function WorkoutLogger() {
     const { time, start, stop, reset, isActive, formattedTime } = useTimer();
+    const { toast } = useToast();
 
     const handleLogWorkout = () => {
         if (time === 0) {

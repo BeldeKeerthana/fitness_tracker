@@ -8,7 +8,7 @@ import { summarizeDailyActivity, type DailyActivityInput } from '@/ai/flows/summ
 import { generateFitnessPlan, type FitnessPlanInput } from '@/ai/flows/generate-fitness-plan';
 
 export async function handleLogin(formData: FormData) {
-  const email = formData.get('email');
+  const email = formData.get('email') as string;
   console.log('Logging in with email:', email);
   // In a real app, you'd handle authentication here.
   // We'll redirect to the onboarding page as if it's a new user.
