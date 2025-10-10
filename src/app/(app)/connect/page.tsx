@@ -1,7 +1,7 @@
 
 'use client';
 
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import { Watch, Heart, AlertTriangle, PhoneCall } from 'lucide-react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
@@ -37,7 +37,7 @@ export default function ConnectPage() {
   };
 
   // Simulate heart rate fluctuation
-  useState(() => {
+  useEffect(() => {
     let interval: NodeJS.Timeout;
     if (isConnected) {
       interval = setInterval(() => {
