@@ -33,11 +33,11 @@ export default function WorkoutCategoryList() {
               <CardDescription>{category.description}</CardDescription>
             </CardHeader>
             <CardFooter className="mt-auto">
-              <Link href={`/workouts/${category.id}`} className="w-full">
-                <Button variant="outline" className="w-full">
+              <Button variant="outline" className="w-full" asChild>
+                <Link href={`/workouts/${category.id}`}>
                   View Exercises <ArrowRight className="ml-2 h-4 w-4" />
-                </Button>
-              </Link>
+                </Link>
+              </Button>
             </CardFooter>
           </Card>
         ))}
