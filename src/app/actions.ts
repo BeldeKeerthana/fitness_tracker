@@ -1,4 +1,3 @@
-
 // @/app/actions.ts
 'use server';
 
@@ -13,7 +12,7 @@ export async function handleLogin(formData: FormData) {
   console.log('Logging in with email:', email);
   // In a real app, you'd handle authentication here.
   // We'll redirect to the onboarding page as if it's a new user.
-  redirect('/dashboard');
+  redirect('/onboarding');
 }
 
 

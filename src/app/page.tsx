@@ -37,7 +37,6 @@ export default function LoginPage() {
                 name="email"
                 placeholder="m@example.com"
                 required
-                defaultValue="user@fitpulse.com"
               />
             </div>
             <div className="grid gap-2">
@@ -50,7 +49,7 @@ export default function LoginPage() {
                   Forgot your password?
                 </Link>
               </div>
-              <Input id="password" name="password" type="password" required defaultValue="password" />
+              <Input id="password" name="password" type="password" required />
             </div>
             <Button type="submit" className="w-full">
               Login
