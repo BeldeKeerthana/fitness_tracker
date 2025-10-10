@@ -3,6 +3,7 @@
 'use server';
 
 import { redirect } from 'next/navigation';
+import { unstable_cache as cache } from 'next/cache';
 import { recommendWorkouts, type WorkoutRecommendationInput } from '@/ai/flows/personalized-workout-recommendations';
 import { summarizeDailyActivity, type DailyActivityInput } from '@/ai/flows/summarize-daily-activity';
 import { generateFitnessPlan, type FitnessPlanInput } from '@/ai/flows/generate-fitness-plan';
@@ -29,8 +30,14 @@ export async function getWorkoutRecommendations(input: WorkoutRecommendationInpu
 }
 
 export async function getDailySummary(input: DailyActivityInput) {
-    const summary = await summarizeDailyActivity(input);
-    return summary;
+    const getCachedSummary = cache(
+        async (data: DailyActivityInput) => summarizeDailyActivity(data),
+        ['daily-summary', JSON.stringify(input)], // Unique key for the cache
+        {
+          revalidate: 3600, // Revalidate every hour
+        }
+      );
+    return getCachedSummary(input);
 }
 
 export async function getFitnessPlan(input: FitnessPlanInput) {
