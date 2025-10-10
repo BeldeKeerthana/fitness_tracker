@@ -41,7 +41,7 @@ const stats: Stat[] = [
 function WelcomeHeaderSkeleton() {
   return (
     <div className="mb-8">
-      <h1 className="text-3xl font-bold font-headline">Hello, {user.name}!</h1>
+      <h1 className="text-3xl font-bold font-headline">Hello!</h1>
       <Skeleton className="h-6 w-3/4 mt-2" />
     </div>
   );
@@ -69,17 +69,19 @@ function DailySummarySkeleton() {
     )
 }
 
-export default function DashboardPage() {
+export default function DashboardPage({ searchParams }: { searchParams: { name?: string } }) {
   const dailyData = {
     sleep: stats.find(s => s.title === 'Sleep')?.value ?? 'N/A',
     steps: stats.find(s => s.title === 'Steps')?.value ?? 'N/A',
     water: '5 glasses', // Example data, will be dynamic later
   };
 
+  const userName = searchParams.name || user.name;
+
   return (
     <div className="flex-1 space-y-4">
       <Suspense fallback={<WelcomeHeaderSkeleton />}>
-        <WelcomeHeader />
+        <WelcomeHeader name={userName} />
       </Suspense>
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">
         {stats.map((stat) => (
