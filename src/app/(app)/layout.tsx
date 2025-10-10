@@ -36,7 +36,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
           <SidebarContent>
             <SidebarMenu>
               <SidebarMenuItem>
-                <Link href="/dashboard" passHref legacyBehavior>
+                <Link href="/dashboard">
                   <SidebarMenuButton asChild tooltip="Dashboard">
                     <LayoutDashboard />
                     <span>Dashboard</span>
@@ -44,7 +44,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
                 </Link>
               </SidebarMenuItem>
               <SidebarMenuItem>
-                <Link href="/workouts" passHref legacyBehavior>
+                <Link href="/workouts">
                   <SidebarMenuButton asChild tooltip="Workouts">
                     <HeartPulse />
                     <span>Workouts</span>
@@ -52,7 +52,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
                 </Link>
               </SidebarMenuItem>
               <SidebarMenuItem>
-                <Link href="/challenges" passHref legacyBehavior>
+                <Link href="/challenges">
                   <SidebarMenuButton asChild tooltip="Challenges">
                     <Trophy />
                     <span>Challenges</span>
@@ -60,7 +60,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
                 </Link>
               </SidebarMenuItem>
               <SidebarMenuItem>
-                <Link href="/goals" passHref legacyBehavior>
+                <Link href="/goals">
                   <SidebarMenuButton asChild tooltip="Goals">
                     <Target />
                     <span>Goals</span>
@@ -68,7 +68,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
                 </Link>
               </SidebarMenuItem>
               <SidebarMenuItem>
-                <Link href="/log-workout" passHref legacyBehavior>
+                <Link href="/log-workout">
                   <SidebarMenuButton asChild tooltip="Log Workout">
                     <Timer />
                     <span>Log Workout</span>
@@ -76,7 +76,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
                 </Link>
               </SidebarMenuItem>
               <SidebarMenuItem>
-                <Link href="/reports" passHref legacyBehavior>
+                <Link href="/reports">
                   <SidebarMenuButton asChild tooltip="Reports">
                     <BarChart />
                     <span>Reports</span>
