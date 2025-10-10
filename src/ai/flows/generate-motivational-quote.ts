@@ -1,3 +1,4 @@
+
 'use server';
 /**
  * @fileOverview Generates a motivational quote related to fitness.
@@ -8,6 +9,7 @@
 
 import {ai} from '@/ai/genkit';
 import {z} from 'genkit';
+import { unstable_cache as cache } from 'next/cache';
 
 const MotivationalQuoteOutputSchema = z.object({
   quote: z.string().describe('A motivational quote related to fitness.'),
@@ -15,7 +17,15 @@ const MotivationalQuoteOutputSchema = z.object({
 export type MotivationalQuoteOutput = z.infer<typeof MotivationalQuoteOutputSchema>;
 
 export async function generateMotivationalQuote(): Promise<MotivationalQuoteOutput> {
-  return generateMotivationalQuoteFlow({});
+  return cache(
+    async () => {
+      return generateMotivationalQuoteFlow({});
+    },
+    ['motivational-quote'],
+    {
+      revalidate: 60 * 60 * 24, // Revalidate once per day
+    }
+  )();
 }
 
 const prompt = ai.definePrompt({
