@@ -4,10 +4,11 @@ import WelcomeHeader from '@/components/dashboard/welcome-header';
 import StatCard from '@/components/dashboard/stat-card';
 import WorkoutLogger from '@/components/dashboard/workout-logger';
 import WorkoutHistory from '@/components/dashboard/workout-history';
-import { Bed, Flame, Footprints, Heart } from 'lucide-react';
+import { Bed, Flame, Footprints, Heart, GlassWater } from 'lucide-react';
 import type { Stat } from '@/lib/types';
 import { Skeleton } from '@/components/ui/skeleton';
 import { user } from '@/lib/data';
+import WaterIntakeCard from '@/components/dashboard/water-intake-card';
 
 const stats: Stat[] = [
     {
@@ -58,6 +59,7 @@ export default function DashboardPage() {
       </div>
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
         <WorkoutLogger />
+        <WaterIntakeCard />
         <WorkoutHistory />
       </div>
     </div>
