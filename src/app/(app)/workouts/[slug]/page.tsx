@@ -22,12 +22,12 @@ export default function WorkoutCategoryPage({ params }: { params: { slug: string
   return (
     <div className="space-y-6">
       <div>
-        <Button asChild variant="ghost" className="mb-4">
-            <Link href="/workouts">
+        <Link href="/workouts" passHref>
+          <Button variant="ghost" className="mb-4">
             <ArrowLeft className="mr-2 h-4 w-4" />
             Back to Workouts
-            </Link>
-        </Button>
+          </Button>
+        </Link>
         <h1 className="text-4xl font-bold font-headline">{category.title}</h1>
         <p className="text-lg text-muted-foreground mt-2">{category.description}</p>
       </div>
