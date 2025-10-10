@@ -39,6 +39,12 @@ const nextConfig: NextConfig = {
         hostname: 'www.keralatourism.org',
         port: '',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'liforme.com',
+        port: '',
+        pathname: '/**',
       }
     ],
   },
