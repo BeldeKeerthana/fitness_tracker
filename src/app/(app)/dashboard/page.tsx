@@ -2,7 +2,6 @@
 import { Suspense } from 'react';
 import WelcomeHeader from '@/components/dashboard/welcome-header';
 import StatCard from '@/components/dashboard/stat-card';
-import WorkoutLogger from '@/components/dashboard/workout-logger';
 import WorkoutHistory from '@/components/dashboard/workout-history';
 import { Bed, Flame, Footprints, Heart, GlassWater } from 'lucide-react';
 import type { Stat } from '@/lib/types';
@@ -57,10 +56,13 @@ export default function DashboardPage() {
           <StatCard key={stat.title} stat={stat} />
         ))}
       </div>
-      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-3">
-        <WorkoutLogger />
-        <WaterIntakeCard />
-        <WorkoutHistory />
+      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-7">
+        <div className="lg:col-span-2">
+            <WaterIntakeCard />
+        </div>
+        <div className="lg:col-span-5">
+            <WorkoutHistory />
+        </div>
       </div>
     </div>
   );

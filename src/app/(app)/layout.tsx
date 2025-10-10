@@ -1,6 +1,6 @@
 
 import Link from 'next/link';
-import { BarChart, HeartPulse, LayoutDashboard, PanelLeft, Search } from 'lucide-react';
+import { BarChart, HeartPulse, LayoutDashboard, PanelLeft, Search, Timer } from 'lucide-react';
 import { user } from '@/lib/data';
 
 import {
@@ -36,7 +36,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
           <SidebarContent>
             <SidebarMenu>
               <SidebarMenuItem>
-                <Link href="/dashboard" passHref>
+                <Link href="/dashboard">
                     <SidebarMenuButton tooltip="Dashboard">
                         <LayoutDashboard />
                         <span>Dashboard</span>
@@ -44,7 +44,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
                 </Link>
               </SidebarMenuItem>
               <SidebarMenuItem>
-                <Link href="/workouts" passHref>
+                <Link href="/workouts">
                     <SidebarMenuButton tooltip="Workouts">
                         <HeartPulse />
                         <span>Workouts</span>
@@ -52,7 +52,15 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
                 </Link>
               </SidebarMenuItem>
               <SidebarMenuItem>
-                <Link href="/reports" passHref>
+                <Link href="/log-workout">
+                    <SidebarMenuButton tooltip="Log Workout">
+                        <Timer />
+                        <span>Log Workout</span>
+                    </SidebarMenuButton>
+                </Link>
+              </SidebarMenuItem>
+              <SidebarMenuItem>
+                <Link href="/reports">
                     <SidebarMenuButton tooltip="Reports">
                         <BarChart />
                         <span>Reports</span>
