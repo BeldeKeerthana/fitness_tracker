@@ -33,6 +33,12 @@ const nextConfig: NextConfig = {
         hostname: 'cdn.yogajournal.com',
         port: '',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.keralatourism.org',
+        port: '',
+        pathname: '/**',
       }
     ],
   },
