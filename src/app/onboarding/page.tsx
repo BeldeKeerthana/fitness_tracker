@@ -3,8 +3,8 @@
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { z } from 'zod';
-import Link from 'next/link';
 
+import { handleOnboarding } from '@/app/actions';
 import { Button } from '@/components/ui/button';
 import {
   Form,
@@ -16,17 +16,8 @@ import {
   FormMessage,
 } from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
-import {
-  Select,
-  SelectContent,
-  SelectItem,
-  SelectTrigger,
-  SelectValue,
-} from '@/components/ui/select';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Textarea } from '@/components/ui/textarea';
-import { toast } from '@/hooks/use-toast';
-import { useRouter } from 'next/navigation';
 import Logo from '@/components/logo';
 
 const onboardingSchema = z.object({
@@ -51,7 +42,6 @@ const onboardingSchema = z.object({
 type OnboardingFormValues = z.infer<typeof onboardingSchema>;
 
 export default function OnboardingPage() {
-  const router = useRouter();
   const form = useForm<OnboardingFormValues>({
     resolver: zodResolver(onboardingSchema),
     defaultValues: {
@@ -65,17 +55,6 @@ export default function OnboardingPage() {
       availableTime: 60,
     },
   });
-
-  async function onSubmit(data: OnboardingFormValues) {
-    toast({
-      title: 'Profile Created!',
-      description: "We're setting up your personalized dashboard.",
-    });
-    // In a real app, you would use a server action here to save the data.
-    // await handleOnboarding(data);
-    console.log('Onboarding data:', data);
-    router.push('/dashboard');
-  }
 
   return (
     <div className="container relative flex-col items-center justify-center md:grid lg:max-w-none lg:grid-cols-1 lg:px-0 min-h-screen">
@@ -91,7 +70,7 @@ export default function OnboardingPage() {
             </p>
           </div>
           <Form {...form}>
-            <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-8">
+            <form action={handleOnboarding} className="space-y-8">
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
                 <FormField
                   control={form.control}
@@ -158,6 +137,7 @@ export default function OnboardingPage() {
                         onValueChange={field.onChange}
                         defaultValue={field.value}
                         className="flex flex-col space-y-1"
+                        name={field.name}
                       >
                         <FormItem className="flex items-center space-x-3 space-y-0">
                           <FormControl>

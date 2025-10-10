@@ -18,7 +18,7 @@ export async function handleLogin(formData: FormData) {
 
 export async function handleOnboarding(formData: FormData) {
   const name = formData.get('name');
-  console.log('Onboarding user:', name);
+  console.log('Onboarding user:', name, Object.fromEntries(formData));
   // In a real app, you'd save this data to your database.
   redirect('/dashboard');
 }
