@@ -36,7 +36,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
           <SidebarContent>
             <SidebarMenu>
               <SidebarMenuItem>
-                <Link href="/dashboard" className="w-full">
+                <Link href="/dashboard" passHref>
                     <SidebarMenuButton tooltip="Dashboard">
                         <LayoutDashboard />
                         <span>Dashboard</span>
@@ -44,7 +44,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
                 </Link>
               </SidebarMenuItem>
               <SidebarMenuItem>
-                <Link href="/workouts" className="w-full">
+                <Link href="/workouts" passHref>
                     <SidebarMenuButton tooltip="Workouts">
                         <HeartPulse />
                         <span>Workouts</span>
@@ -52,7 +52,7 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
                 </Link>
               </SidebarMenuItem>
               <SidebarMenuItem>
-                <Link href="/reports" className="w-full">
+                <Link href="/reports" passHref>
                     <SidebarMenuButton tooltip="Reports">
                         <BarChart />
                         <span>Reports</span>
