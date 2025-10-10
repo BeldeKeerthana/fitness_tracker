@@ -1,4 +1,3 @@
-
 // @/app/actions.ts
 'use server';
 
@@ -21,7 +20,11 @@ export async function handleOnboarding(formData: FormData) {
   const name = formData.get('name') as string;
   console.log('Onboarding user:', name, Object.fromEntries(formData));
   // In a real app, you'd save this data to your database.
-  redirect(`/dashboard?name=${encodeURIComponent(name)}`);
+  if (name) {
+    redirect(`/dashboard?name=${encodeURIComponent(name)}`);
+  } else {
+    redirect('/dashboard');
+  }
 }
 
 export async function getWorkoutRecommendations(input: WorkoutRecommendationInput) {
