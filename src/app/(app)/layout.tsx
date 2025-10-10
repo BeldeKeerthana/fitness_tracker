@@ -35,24 +35,24 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
           </SidebarHeader>
           <SidebarContent>
             <SidebarMenu>
-              <SidebarMenuItem>
-                <Link href="/dashboard" legacyBehavior passHref>
+              <SidebarMenuItem asChild>
+                <Link href="/dashboard">
                     <SidebarMenuButton tooltip="Dashboard">
                         <LayoutDashboard />
                         <span>Dashboard</span>
                     </SidebarMenuButton>
                 </Link>
               </SidebarMenuItem>
-              <SidebarMenuItem>
-                <Link href="/workouts" legacyBehavior passHref>
+              <SidebarMenuItem asChild>
+                <Link href="/workouts">
                     <SidebarMenuButton tooltip="Workouts">
                         <HeartPulse />
                         <span>Workouts</span>
                     </SidebarMenuButton>
                 </Link>
               </SidebarMenuItem>
-              <SidebarMenuItem>
-                <Link href="/reports" legacyBehavior passHref>
+              <SidebarMenuItem asChild>
+                <Link href="/reports">
                     <SidebarMenuButton tooltip="Reports">
                         <BarChart />
                         <span>Reports</span>
