@@ -3,8 +3,15 @@ import Image from 'next/image';
 import { yogaPoses } from '@/lib/data';
 import { Badge } from '@/components/ui/badge';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import type { YogaPose } from '@/lib/types';
 
-function YogaPoseCard({ pose }: { pose: (typeof yogaPoses)[0] }) {
+function YogaPoseCard({ pose }: { pose: YogaPose }) {
+    const getBadgeVariant = (level: YogaPose['level']): 'secondary' | 'default' | 'destructive' => {
+        if (level === 'Basic') return 'secondary';
+        if (level === 'Intermediate') return 'default';
+        return 'destructive';
+    }
+
     return (
       <Card className="flex flex-col md:flex-row overflow-hidden">
         <div className="md:w-1/2 relative h-64 md:h-auto">
@@ -20,7 +27,7 @@ function YogaPoseCard({ pose }: { pose: (typeof yogaPoses)[0] }) {
           <CardHeader>
             <div className="flex items-center justify-between">
               <CardTitle className="font-headline">{pose.title}</CardTitle>
-              <Badge variant={pose.level === 'Basic' ? 'secondary' : pose.level === 'Intermediate' ? 'default' : 'destructive'}>
+              <Badge variant={getBadgeVariant(pose.level)}>
                 {pose.level}
               </Badge>
             </div>
