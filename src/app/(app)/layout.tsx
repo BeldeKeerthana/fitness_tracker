@@ -38,48 +38,60 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
               <SidebarMenuItem>
                 <Link href="/dashboard">
                   <SidebarMenuButton asChild tooltip="Dashboard">
-                    <LayoutDashboard />
-                    <span>Dashboard</span>
+                    <span>
+                      <LayoutDashboard />
+                      <span>Dashboard</span>
+                    </span>
                   </SidebarMenuButton>
                 </Link>
               </SidebarMenuItem>
               <SidebarMenuItem>
                 <Link href="/workouts">
                   <SidebarMenuButton asChild tooltip="Workouts">
-                    <HeartPulse />
-                    <span>Workouts</span>
+                    <span>
+                      <HeartPulse />
+                      <span>Workouts</span>
+                    </span>
                   </SidebarMenuButton>
                 </Link>
               </SidebarMenuItem>
               <SidebarMenuItem>
                 <Link href="/challenges">
                   <SidebarMenuButton asChild tooltip="Challenges">
-                    <Trophy />
-                    <span>Challenges</span>
+                    <span>
+                      <Trophy />
+                      <span>Challenges</span>
+                    </span>
                   </SidebarMenuButton>
                 </Link>
               </SidebarMenuItem>
               <SidebarMenuItem>
                 <Link href="/goals">
                   <SidebarMenuButton asChild tooltip="Goals">
-                    <Target />
-                    <span>Goals</span>
+                    <span>
+                      <Target />
+                      <span>Goals</span>
+                    </span>
                   </SidebarMenuButton>
                 </Link>
               </SidebarMenuItem>
               <SidebarMenuItem>
                 <Link href="/log-workout">
                   <SidebarMenuButton asChild tooltip="Log Workout">
-                    <Timer />
-                    <span>Log Workout</span>
+                    <span>
+                      <Timer />
+                      <span>Log Workout</span>
+                    </span>
                   </SidebarMenuButton>
                 </Link>
               </SidebarMenuItem>
               <SidebarMenuItem>
                 <Link href="/reports">
                   <SidebarMenuButton asChild tooltip="Reports">
-                    <BarChart />
-                    <span>Reports</span>
+                    <span>
+                      <BarChart />
+                      <span>Reports</span>
+                    </span>
                   </SidebarMenuButton>
                 </Link>
               </SidebarMenuItem>
