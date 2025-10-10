@@ -56,74 +56,74 @@
     },
     {
       "id": "yoga-mountain",
-      "description": "Mountain Pose",
-      "imageUrl": "https://picsum.photos/seed/yoga1/600/400",
+      "description": "A person in Mountain Pose.",
+      "imageUrl": "https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?q=80&w=1800",
       "imageHint": "yoga mountain"
     },
     {
       "id": "yoga-downward-dog",
-      "description": "Downward-Facing Dog",
-      "imageUrl": "https://picsum.photos/seed/yoga2/600/400",
+      "description": "A person in Downward-Facing Dog pose.",
+      "imageUrl": "https://images.unsplash.com/photo-1591291621239-1b36a4c81395?q=80&w=1800",
       "imageHint": "yoga dog"
     },
     {
       "id": "yoga-warrior-2",
-      "description": "Warrior II",
-      "imageUrl": "https://picsum.photos/seed/yoga3/600/400",
+      "description": "A person in Warrior II pose.",
+      "imageUrl": "https://images.unsplash.com/photo-1599447382449-3a3a35a2a915?q=80&w=1800",
       "imageHint": "yoga warrior"
     },
     {
       "id": "yoga-tree",
-      "description": "Tree Pose",
-      "imageUrl": "https://picsum.photos/seed/yoga4/600/400",
+      "description": "A person in Tree Pose.",
+      "imageUrl": "https://images.unsplash.com/photo-1506126613408-4e63a2b5a4a4?q=80&w=1800",
       "imageHint": "yoga tree"
     },
     {
       "id": "yoga-bridge",
-      "description": "Bridge Pose",
-      "imageUrl": "https://picsum.photos/seed/yoga5/600/400",
+      "description": "A person in Bridge Pose.",
+      "imageUrl": "https://images.unsplash.com/photo-1603988363602-9c3f317e8c45?q=80&w=1800",
       "imageHint": "yoga bridge"
     },
     {
       "id": "yoga-triangle",
-      "description": "Triangle Pose",
-      "imageUrl": "https://picsum.photos/seed/yoga6/600/400",
+      "description": "A person in Triangle Pose.",
+      "imageUrl": "https://images.unsplash.com/photo-1597848212624-a19eb35e2651?q=80&w=1800",
       "imageHint": "yoga triangle"
     },
     {
       "id": "yoga-half-moon",
-      "description": "Half Moon Pose",
-      "imageUrl": "https://picsum.photos/seed/yoga7/600/400",
+      "description": "A person in Half Moon Pose.",
+      "imageUrl": "https://images.unsplash.com/photo-1575052814086-c425b425049b?q=80&w=1800",
       "imageHint": "yoga moon"
     },
     {
       "id": "yoga-pigeon",
-      "description": "Pigeon Pose",
-      "imageUrl": "https://picsum.photos/seed/yoga8/600/400",
+      "description": "A person in Pigeon Pose.",
+      "imageUrl": "https://images.unsplash.com/photo-1593164842244-eff55705db5b?q=80&w=1800",
       "imageHint": "yoga pigeon"
     },
     {
       "id": "yoga-crow",
-      "description": "Crow Pose",
-      "imageUrl": "https://picsum.photos/seed/yoga9/600/400",
+      "description": "A person in Crow Pose.",
+      "imageUrl": "https://images.unsplash.com/photo-1605296867724-fa87a8ef53fd?q=80&w=1800",
       "imageHint": "yoga crow"
     },
     {
       "id": "yoga-headstand",
-      "description": "Headstand",
-      "imageUrl": "https://picsum.photos/seed/yoga10/600/400",
+      "description": "A person doing a Headstand.",
+      "imageUrl": "https://images.unsplash.com/photo-1599905835223-c90a19af5c65?q=80&w=1800",
       "imageHint": "yoga headstand"
     },
     {
       "id": "yoga-handstand",
-      "description": "Handstand",
-      "imageUrl": "https://picsum.photos/seed/yoga11/600/400",
+      "description": "A person doing a Handstand.",
+      "imageUrl": "https://images.unsplash.com/photo-1524863112159-158a4857436b?q=80&w=1800",
       "imageHint": "yoga handstand"
     },
     {
       "id": "yoga-lotus",
-      "description": "Lotus Pose",
-      "imageUrl": "https://picsum.photos/seed/yoga12/600/400",
+      "description": "A person in Lotus Pose.",
+      "imageUrl": "https://images.unsplash.com/photo-1508739773434-c26b3d09e071?q=80&w=1800",
       "imageHint": "yoga meditation"
     }
   ]
