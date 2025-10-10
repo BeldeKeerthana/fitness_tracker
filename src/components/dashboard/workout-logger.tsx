@@ -33,9 +33,11 @@ export default function WorkoutLogger() {
                 <CardTitle>Log Workout</CardTitle>
             </CardHeader>
             <CardContent className="flex flex-col items-center justify-center space-y-4">
-                <div className="flex items-center space-x-2 text-6xl font-bold font-mono text-primary">
-                    <Timer className="h-12 w-12" />
-                    <span>{formattedTime}</span>
+                <div className="flex items-center justify-center rounded-lg bg-muted w-full p-4">
+                    <div className="flex items-center space-x-2 text-6xl font-bold font-mono text-primary">
+                        <Timer className="h-12 w-12" />
+                        <span>{formattedTime}</span>
+                    </div>
                 </div>
                 <div className="flex space-x-4">
                     {!isActive ? (
