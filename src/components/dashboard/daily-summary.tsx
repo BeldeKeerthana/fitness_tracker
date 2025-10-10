@@ -1,12 +1,13 @@
 
 'use server';
 
-import { summarizeDailyActivity, DailyActivityInput } from '@/ai/flows/summarize-daily-activity';
+import { getDailySummary } from '@/app/actions';
+import type { DailyActivityInput } from '@/ai/flows/summarize-daily-activity';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
 import { Activity, Zap } from 'lucide-react';
 
 export default async function DailySummary({ data }: { data: DailyActivityInput }) {
-  const { summary, suggestions } = await summarizeDailyActivity(data);
+  const { summary, suggestions } = await getDailySummary(data);
 
   return (
     <Card className="lg:col-span-4">
