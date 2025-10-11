@@ -3,7 +3,7 @@
     {
       "id": "hero-login",
       "description": "A person working out, energetic and focused.",
-      "imageUrl": "https://picsum.photos/seed/1/1200/800",
+      "imageUrl": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=2070&auto=format&fit=crop",
       "imageHint": "fitness workout"
     },
     {
@@ -69,7 +69,7 @@
     {
       "id": "yoga-warrior-2",
       "description": "A person in Warrior II pose.",
-      "imageUrl": "https://liforme.com/cdn/shop/articles/0019_Warrior_II_-_Virabhadrasana_II_08_Laruga_31ba9e6e-26d7-42d2-b673-724fbd06a4f5.jpg?v=1750946478",
+      "imageUrl": "http://liforme.com/cdn/shop/articles/0019_Warrior_II_-_Virabhadrasana_II_08_Laruga_31ba9e6e-26d7-42d2-b673-724fbd06a4f5.jpg?v=1750946478",
       "imageHint": "yoga warrior"
     },
     {
