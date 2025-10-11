@@ -58,6 +58,12 @@ const nextConfig: NextConfig = {
         hostname: 'www.theyogacollective.com',
         port: '',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'www.gaia.com',
+        port: '',
+        pathname: '/**',
       }
     ],
   },
