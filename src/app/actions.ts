@@ -11,19 +11,24 @@ export async function handleLogin(formData: FormData) {
   console.log('Logging in with email:', email);
   // In a real app, you'd handle authentication here.
   // We'll redirect to the onboarding page as if it's a new user.
-  redirect('/onboarding');
+  redirect(`/onboarding?email=${encodeURIComponent(email)}`);
 }
 
 
 export async function handleOnboarding(formData: FormData) {
   const name = formData.get('name') as string;
+  const email = formData.get('email') as string;
   console.log('Onboarding user:', name, Object.fromEntries(formData));
   // In a real app, you'd save this data to your database.
+  
+  const params = new URLSearchParams();
   if (name) {
-    redirect(`/dashboard?name=${encodeURIComponent(name)}`);
-  } else {
-    redirect('/dashboard');
+    params.set('name', name);
   }
+  if (email) {
+    params.set('email', email);
+  }
+  redirect(`/dashboard?${params.toString()}`);
 }
 
 export async function getWorkoutRecommendations(input: WorkoutRecommendationInput) {

@@ -1,5 +1,6 @@
 'use client';
 
+import { useSearchParams } from 'next/navigation';
 import { handleOnboarding } from '@/app/actions';
 import { Button } from '@/components/ui/button';
 import {
@@ -18,6 +19,9 @@ import Logo from '@/components/logo';
 import { Label } from '@/components/ui/label';
 
 export default function OnboardingPage() {
+  const searchParams = useSearchParams();
+  const email = searchParams.get('email');
+
   return (
     <div className="container relative flex-col items-center justify-center md:grid lg:max-w-none lg:grid-cols-1 lg:px-0 min-h-screen">
       <div className="py-12">
@@ -32,6 +36,7 @@ export default function OnboardingPage() {
             </p>
           </div>
           <form action={handleOnboarding} className="space-y-8">
+            {email && <input type="hidden" name="email" value={email} />}
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="space-y-2">
                 <Label htmlFor="name">Name</Label>

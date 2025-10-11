@@ -1,7 +1,7 @@
 
 import Link from 'next/link';
 import { BarChart, HeartPulse, LayoutDashboard, Flower2, Target, Timer, Trophy, Watch, Brain } from 'lucide-react';
-import { user } from '@/lib/data';
+import type { User } from '@/lib/data';
 
 import {
   SidebarProvider,
@@ -18,7 +18,19 @@ import {
 import { UserNav } from '@/components/user-nav';
 import Logo from '@/components/logo';
 
-export default function AppLayout({ children }: { children: React.ReactNode }) {
+export default function AppLayout({ 
+    children,
+    searchParams,
+}: { 
+    children: React.ReactNode,
+    searchParams?: { [key: string]: string | string[] | undefined };
+}) {
+  const user: User = {
+    name: searchParams?.name as string || 'Alex',
+    email: searchParams?.email as string || 'alex@example.com',
+    avatar: '',
+  };
+
   return (
     <SidebarProvider>
       <div className="flex min-h-screen">
