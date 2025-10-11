@@ -31,6 +31,18 @@ export default function AppLayout({
     avatar: '',
   };
 
+  const navLinks = [
+    { href: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
+    { href: '/workouts', label: 'Workouts', icon: HeartPulse },
+    { href: '/yoga', label: 'Yoga', icon: Flower2 },
+    { href: '/challenges', label: 'Challenges', icon: Trophy },
+    { href: '/goals', label: 'Goals', icon: Target },
+    { href: '/log-workout', label: 'Log Workout', icon: Timer },
+    { href: '/reports', label: 'Reports', icon: BarChart },
+    { href: '/connect', label: 'Connect to Watch', icon: Watch },
+    { href: '/mental-health', label: 'Mental Health', icon: Brain },
+  ];
+
   return (
     <SidebarProvider>
       <div className="flex min-h-screen">
@@ -45,96 +57,18 @@ export default function AppLayout({
           </SidebarHeader>
           <SidebarContent>
             <SidebarMenu>
-              <SidebarMenuItem>
-                <Link href="/dashboard">
-                  <SidebarMenuButton asChild tooltip="Dashboard">
-                    <span>
-                      <LayoutDashboard />
-                      <span>Dashboard</span>
-                    </span>
-                  </SidebarMenuButton>
-                </Link>
-              </SidebarMenuItem>
-              <SidebarMenuItem>
-                <Link href="/workouts">
-                  <SidebarMenuButton asChild tooltip="Workouts">
-                    <span>
-                      <HeartPulse />
-                      <span>Workouts</span>
-                    </span>
-                  </SidebarMenuButton>
-                </Link>
-              </SidebarMenuItem>
-              <SidebarMenuItem>
-                <Link href="/yoga">
-                  <SidebarMenuButton asChild tooltip="Yoga">
-                    <span>
-                      <Flower2 />
-                      <span>Yoga</span>
-                    </span>
-                  </SidebarMenuButton>
-                </Link>
-              </SidebarMenuItem>
-              <SidebarMenuItem>
-                <Link href="/challenges">
-                  <SidebarMenuButton asChild tooltip="Challenges">
-                    <span>
-                      <Trophy />
-                      <span>Challenges</span>
-                    </span>
-                  </SidebarMenuButton>
-                </Link>
-              </SidebarMenuItem>
-              <SidebarMenuItem>
-                <Link href="/goals">
-                  <SidebarMenuButton asChild tooltip="Goals">
-                    <span>
-                      <Target />
-                      <span>Goals</span>
-                    </span>
-                  </SidebarMenuButton>
-                </Link>
-              </SidebarMenuItem>
-              <SidebarMenuItem>
-                <Link href="/log-workout">
-                  <SidebarMenuButton asChild tooltip="Log Workout">
-                    <span>
-                      <Timer />
-                      <span>Log Workout</span>
-                    </span>
-                  </SidebarMenuButton>
-                </Link>
-              </SidebarMenuItem>
-              <SidebarMenuItem>
-                <Link href="/reports">
-                  <SidebarMenuButton asChild tooltip="Reports">
-                    <span>
-                      <BarChart />
-                      <span>Reports</span>
-                    </span>
-                  </SidebarMenuButton>
-                </Link>
-              </SidebarMenuItem>
-              <SidebarMenuItem>
-                <Link href="/connect">
-                  <SidebarMenuButton asChild tooltip="Connect">
-                    <span>
-                      <Watch />
-                      <span>Connect to Watch</span>
-                    </span>
-                  </SidebarMenuButton>
-                </Link>
-              </SidebarMenuItem>
-               <SidebarMenuItem>
-                <Link href="/mental-health">
-                  <SidebarMenuButton asChild tooltip="Mental Health">
-                    <span>
-                      <Brain />
-                      <span>Mental Health</span>
-                    </span>
-                  </SidebarMenuButton>
-                </Link>
-              </SidebarMenuItem>
+              {navLinks.map((link) => (
+                <SidebarMenuItem key={link.href}>
+                  <Link href={`${link.href}?name=${encodeURIComponent(user.name)}&email=${encodeURIComponent(user.email)}`}>
+                    <SidebarMenuButton asChild tooltip={link.label}>
+                      <span>
+                        <link.icon />
+                        <span>{link.label}</span>
+                      </span>
+                    </SidebarMenuButton>
+                  </Link>
+                </SidebarMenuItem>
+              ))}
             </SidebarMenu>
           </SidebarContent>
           <SidebarFooter className="items-center group-data-[state=collapsed]:p-0 group-data-[state=collapsed]:pt-2">
