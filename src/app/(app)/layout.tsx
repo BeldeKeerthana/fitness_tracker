@@ -1,6 +1,6 @@
 
 import Link from 'next/link';
-import { BarChart, HeartPulse, LayoutDashboard, Flower2, Target, Timer, Trophy, Watch } from 'lucide-react';
+import { BarChart, HeartPulse, LayoutDashboard, Flower2, Target, Timer, Trophy, Watch, Brain } from 'lucide-react';
 import { user } from '@/lib/data';
 
 import {
@@ -109,6 +109,16 @@ export default function AppLayout({ children }: { children: React.ReactNode }) {
                     <span>
                       <Watch />
                       <span>Connect to Watch</span>
+                    </span>
+                  </SidebarMenuButton>
+                </Link>
+              </SidebarMenuItem>
+               <SidebarMenuItem>
+                <Link href="/mental-health">
+                  <SidebarMenuButton asChild tooltip="Mental Health">
+                    <span>
+                      <Brain />
+                      <span>Mental Health</span>
                     </span>
                   </SidebarMenuButton>
                 </Link>

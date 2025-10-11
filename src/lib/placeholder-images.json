@@ -125,6 +125,12 @@
       "description": "A person in Lotus Pose.",
       "imageUrl": "https://www.keralatourism.org/images/yoga/static-banner/large/Padmasana_-_The_Lotus_Pose-10032020182228.jpg",
       "imageHint": "yoga meditation"
+    },
+    {
+      "id": "meditation",
+      "description": "A serene meditation scene.",
+      "imageUrl": "https://picsum.photos/seed/meditate/1200/800",
+      "imageHint": "meditation serene"
     }
   ]
 }
