@@ -1,0 +1,101 @@
+OrderID,Product,Category,Price,Quantity,OrderDate,CustomerID,Country
+1,Laptop,Electronics,1200,1,2023-01-15,CUST001,USA
+2,Mouse,Accessories,25,2,2023-01-16,CUST002,Canada
+3,Keyboard,Accessories,75,1,2023-01-17,CUST003,UK
+4,Monitor,Electronics,300,2,2023-01-18,CUST004,Germany
+5,Webcam,Accessories,50,1,2023-01-19,CUST005,France
+6,Headphones,Accessories,150,1,2023-01-20,CUST001,USA
+7,Laptop,Electronics,1250,1,2023-01-21,CUST006,Japan
+8,Desk Chair,Furniture,250,1,2023-01-22,CUST007,Australia
+9,Mouse,Accessories,27,3,2023-01-23,CUST008,USA
+10,USB Hub,Accessories,30,1,2023-01-24,CUST002,Canada
+11,Standing Desk,Furniture,500,1,2023-01-25,CUST009,UK
+12,Monitor,Electronics,320,1,2023-01-26,CUST010,Germany
+13,Keyboard,Accessories,80,1,2023-01-27,CUST003,UK
+14,Laptop,Electronics,1150,1,2023-01-28,CUST011,France
+15,Headphones,Accessories,140,2,2023-01-29,CUST012,USA
+16,Webcam,Accessories,55,1,2023-01-30,CUST005,France
+17,Mouse,Accessories,25,1,2023-01-31,CUST013,Japan
+18,Docking Station,Accessories,200,1,2023-02-01,CUST014,Australia
+19,Laptop,Electronics,1300,1,2023-02-02,CUST015,USA
+20,Keyboard,Accessories,70,2,2023-02-03,CUST008,USA
+21,Monitor,Electronics,290,1,2023-02-04,CUST016,Canada
+22,Desk Chair,Furniture,260,2,2023-02-05,CUST017,UK
+23,USB Hub,Accessories,35,1,2023-02-06,CUST018,Germany
+24,Headphones,Accessories,160,1,2023-02-07,CUST019,France
+25,Standing Desk,Furniture,550,1,2023-02-08,CUST020,USA
+26,Laptop,Electronics,1220,1,2023-02-09,CUST001,USA
+27,Mouse,Accessories,26,1,2023-02-10,CUST021,Japan
+28,Webcam,Accessories,48,2,2023-02-11,CUST022,Australia
+29,Keyboard,Accessories,78,1,2023-02-12,CUST003,UK
+30,Monitor,Electronics,310,1,2023-02-13,CUST023,Germany
+31,Docking Station,Accessories,210,1,2023-02-14,CUST024,USA
+32,Desk Chair,Furniture,240,1,2023-02-15,CUST007,Australia
+33,Laptop,Electronics,1280,1,2023-02-16,CUST025,Canada
+34,Headphones,Accessories,145,1,2023-02-17,CUST012,USA
+35,USB Hub,Accessories,32,2,2023-02-18,CUST002,Canada
+36,Mouse,Accessories,28,1,2023-02-19,CUST026,UK
+37,Standing Desk,Furniture,520,1,2023-02-20,CUST027,France
+38,Keyboard,Accessories,82,1,2023-02-21,CUST028,USA
+39,Monitor,Electronics,330,2,2023-02-22,CUST029,Japan
+40,Laptop,Electronics,1180,1,2023-02-23,CUST030,Germany
+41,Webcam,Accessories,52,1,2023-02-24,CUST031,USA
+42,Headphones,Accessories,155,1,2023-02-25,CUST032,Canada
+43,Desk Chair,Furniture,270,1,2023-02-26,CUST033,UK
+44,Docking Station,Accessories,190,1,2023-02-27,CUST034,France
+45,Mouse,Accessories,29,1,2023-02-28,CUST035,USA
+46,Laptop,Electronics,1350,1,2023-03-01,CUST036,Australia
+47,Keyboard,Accessories,72,1,2023-03-02,CUST037,Japan
+48,Monitor,Electronics,295,1,2023-03-03,CUST038,Germany
+49,USB Hub,Accessories,33,1,2023-03-04,CUST039,UK
+50,Standing Desk,Furniture,490,1,2023-03-05,CUST040,USA
+51,Laptop,Electronics,1210,1,2023-03-06,CUST041,Canada
+52,Mouse,Accessories,24,2,2023-03-07,CUST042,USA
+53,Webcam,Accessories,49,1,2023-03-08,CUST043,France
+54,Headphones,Accessories,165,1,2023-03-09,CUST044,Germany
+55,Desk Chair,Furniture,280,1,2023-03-10,CUST045,UK
+56,Docking Station,Accessories,220,1,2023-03-11,CUST046,USA
+57,Keyboard,Accessories,85,1,2023-03-12,CUST047,Japan
+58,Monitor,Electronics,340,1,2023-03-13,CUST048,Australia
+59,Laptop,Electronics,1400,1,2023-03-14,CUST049,USA
+60,USB Hub,Accessories,38,1,2023-03-15,CUST050,Canada
+61,Standing Desk,Furniture,580,1,2023-03-16,CUST051,UK
+62,Mouse,Accessories,31,3,2023-03-17,CUST052,Germany
+63,Webcam,Accessories,58,1,2023-03-18,CUST053,France
+64,Headphones,Accessories,135,2,2023-03-19,CUST054,USA
+65,Laptop,Electronics,1100,1,2023-03-20,CUST055,Japan
+66,Desk Chair,Furniture,230,1,2023-03-21,CUST056,Australia
+67,Keyboard,Accessories,68,1,2023-03-22,CUST057,USA
+68,Monitor,Electronics,280,2,2023-03-23,CUST058,Canada
+69,Docking Station,Accessories,180,1,2023-03-24,CUST059,UK
+70,USB Hub,Accessories,28,1,2023-03-25,CUST060,Germany
+71,Laptop,Electronics,1500,1,2023-03-26,CUST061,France
+72,Mouse,Accessories,22,1,2023-03-27,CUST062,USA
+73,Standing Desk,Furniture,600,1,2023-03-28,CUST063,Japan
+74,Headphones,Accessories,170,1,2023-03-29,CUST064,Australia
+75,Webcam,Accessories,60,1,2023-03-30,CUST065,USA
+76,Keyboard,Accessories,90,1,2023-03-31,CUST066,Canada
+77,Monitor,Electronics,350,1,2023-04-01,CUST067,UK
+78,Desk Chair,Furniture,290,1,2023-04-02,CUST068,Germany
+79,Laptop,Electronics,1450,1,2023-04-03,CUST069,France
+80,Docking Station,Accessories,230,1,2023-04-04,CUST070,USA
+81,Mouse,Accessories,33,2,2023-04-05,CUST071,Japan
+82,USB Hub,Accessories,40,1,2023-04-06,CUST072,Australia
+83,Headphones,Accessories,120,1,2023-04-07,CUST073,USA
+84,Standing Desk,Furniture,480,1,2023-04-08,CUST074,Canada
+85,Laptop,Electronics,1120,1,2023-04-09,CUST075,UK
+86,Webcam,Accessories,45,1,2023-04-10,CUST076,Germany
+87,Keyboard,Accessories,65,1,2023-04-11,CUST077,France
+88,Monitor,Electronics,270,1,2023-04-12,CUST078,USA
+89,Desk Chair,Furniture,220,2,2023-04-13,CUST079,Japan
+90,Laptop,Electronics,1600,1,2023-04-14,CUST080,Australia
+91,Mouse,Accessories,20,1,2023-04-15,CUST081,USA
+92,Docking Station,Accessories,240,1,2023-04-16,CUST082,Canada
+93,Headphones,Accessories,180,1,2023-04-17,CUST083,UK
+94,USB Hub,Accessories,42,1,2023-04-18,CUST084,Germany
+95,Standing Desk,Furniture,620,1,2023-04-19,CUST085,France
+96,Laptop,Electronics,1320,1,2023-04-20,CUST086,USA
+97,Keyboard,Accessories,95,1,2023-04-21,CUST087,Japan
+98,Monitor,Electronics,360,1,2023-04-22,CUST088,Australia
+99,Webcam,Accessories,65,1,2023-04-23,CUST089,USA
+100,Desk Chair,Furniture,300,1,2023-04-24,CUST090,Canada
