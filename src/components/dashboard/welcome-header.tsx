@@ -1,9 +1,8 @@
-
 // NOTE: AI functionality has been temporarily removed to fix deployment issues.
 // This component now uses a static quote.
 const staticQuote = "The only bad workout is the one that didn't happen.";
 
-export default async function WelcomeHeader({ name }: { name: string }) {
+export default function WelcomeHeader({ name }: { name: string }) {
   const quote = staticQuote;
   
   return (

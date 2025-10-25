@@ -1,13 +1,11 @@
-
 'use server';
 
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
 import { Activity, Zap } from 'lucide-react';
-import type { DailyActivityOutput } from '@/ai/flows/summarize-daily-activity';
 
 // NOTE: AI functionality has been temporarily removed to fix deployment issues.
 // This component now uses static data.
-function getStaticSummary(): DailyActivityOutput {
+function getStaticSummary() {
     return {
         summary: "You had a balanced day! You're making good progress on your goals. Consistency is key, so keep up the great work and listen to your body.",
         suggestions: [
