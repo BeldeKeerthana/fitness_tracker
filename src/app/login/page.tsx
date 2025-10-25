@@ -3,7 +3,7 @@
 
 import Image from 'next/image';
 import Link from 'next/link';
-import { useRouter, useSearchParams } from 'next/navigation';
+import { useSearchParams } from 'next/navigation';
 import { Button } from '@/components/ui/button';
 import {
   Card,
@@ -21,7 +21,6 @@ import { FormEvent } from 'react';
 
 export default function LoginPage() {
   const loginImage = PlaceHolderImages.find((img) => img.id === 'hero-login');
-  const router = useRouter();
   const searchParams = useSearchParams();
   const redirectTo = searchParams.get('redirect_to') || '/dashboard';
 

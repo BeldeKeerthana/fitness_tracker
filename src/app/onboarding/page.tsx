@@ -4,21 +4,12 @@
 import { useSearchParams } from 'next/navigation';
 import { handleOnboarding } from '@/app/auth/actions';
 import { Button } from '@/components/ui/button';
-import {
-  Form,
-  FormControl,
-  FormDescription,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@/components/ui/form';
 import { Input } from '@/components/ui/input';
 import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Textarea } from '@/components/ui/textarea';
 import Logo from '@/components/logo';
 import { Label } from '@/components/ui/label';
-import { useEffect, useState } from 'react';
+import { FormEvent, useEffect, useState } from 'react';
 
 export default function OnboardingPage() {
   const searchParams = useSearchParams();
@@ -27,9 +18,17 @@ export default function OnboardingPage() {
 
   useEffect(() => {
     // Reading cookie on client
-    const emailCookie = document.cookie.split('; ').find(row => row.startsWith('user-email='))?.split('=')[1];
-    setEmail(emailCookie || null);
+    const emailCookieValue = document.cookie.split('; ').find(row => row.startsWith('user-email='))?.split('=')[1];
+    if (emailCookieValue) {
+      setEmail(decodeURIComponent(emailCookieValue));
+    }
   }, []);
+
+  const onOnboarding = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    await handleOnboarding(formData);
+  };
 
 
   return (
@@ -45,7 +44,7 @@ export default function OnboardingPage() {
               Tell us a bit about yourself to get personalized recommendations.
             </p>
           </div>
-          <form action={handleOnboarding} className="space-y-8">
+          <form onSubmit={onOnboarding} className="space-y-8">
             {email && <input type="hidden" name="email" value={email} />}
             {redirectTo && <input type="hidden" name="redirect_to" value={redirectTo} />}
 
