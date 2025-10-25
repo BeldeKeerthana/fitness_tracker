@@ -28,6 +28,7 @@ export default function LoginPage() {
     e.preventDefault();
     const formData = new FormData(e.currentTarget);
     await handleLogin(formData);
+    window.location.href = redirectTo;
   };
 
   return (
