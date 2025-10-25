@@ -3,7 +3,6 @@ import { yogaPoses } from '@/lib/data';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import type { YogaPose } from '@/lib/types';
-import AppLayout from '@/components/AppLayout';
 
 function YogaPoseCard({ pose }: { pose: YogaPose }) {
     const getBadgeVariant = (level: YogaPose['level']): 'secondary' | 'default' | 'destructive' => {
@@ -59,7 +58,6 @@ function YogaPoseCard({ pose }: { pose: YogaPose }) {
 
 export default function YogaPage() {
   return (
-    <AppLayout>
       <div className="space-y-8">
         <div className="text-center space-y-4">
           <h1 className="text-4xl md:text-5xl font-bold font-headline text-primary">
@@ -86,6 +84,5 @@ export default function YogaPage() {
           ))}
         </div>
       </div>
-    </AppLayout>
   );
 }

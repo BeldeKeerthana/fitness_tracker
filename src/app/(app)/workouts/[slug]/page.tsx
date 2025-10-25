@@ -4,7 +4,6 @@ import { ArrowLeft } from 'lucide-react';
 import { workoutCategories, exercises } from '@/lib/data';
 import ExerciseCard from '@/components/workouts/exercise-card';
 import { Button } from '@/components/ui/button';
-import AppLayout from '@/components/AppLayout';
 
 export async function generateStaticParams() {
   return workoutCategories.map((category) => ({
@@ -21,7 +20,6 @@ export default function WorkoutCategoryPage({ params }: { params: { slug: string
   }
 
   return (
-    <AppLayout>
       <div className="space-y-6">
         <div>
           <Button variant="ghost" className="mb-4" asChild>
@@ -44,6 +42,5 @@ export default function WorkoutCategoryPage({ params }: { params: { slug: string
           )}
         </div>
       </div>
-    </AppLayout>
   );
 }

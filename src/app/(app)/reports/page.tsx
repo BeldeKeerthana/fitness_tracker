@@ -3,7 +3,6 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/com
 import { Tabs, TabsContent, TabsList, TabsTrigger } from '@/components/ui/tabs';
 import { ActivityChart } from '@/components/reports/activity-chart';
 import type { ChartConfig } from '@/components/ui/chart';
-import AppLayout from '@/components/AppLayout';
 
 const workoutTimeConfig: ChartConfig = {
   'Workout Time': {
@@ -28,7 +27,6 @@ const stepsConfig: ChartConfig = {
 
 export default function ReportsPage() {
   return (
-    <AppLayout>
       <div className="space-y-6">
         <div>
           <h1 className="text-3xl font-bold font-headline">Reports</h1>
@@ -106,6 +104,5 @@ export default function ReportsPage() {
           </TabsContent>
         </Tabs>
       </div>
-    </AppLayout>
   );
 }

@@ -21,7 +21,6 @@ import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@
 import { Skeleton } from '@/components/ui/skeleton';
 import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
-import AppLayout from '@/components/AppLayout';
 
 const goalSchema = z.object({
   currentWeight: z.coerce.number().positive('Must be a positive number.'),
@@ -96,7 +95,6 @@ export default function GoalsPage() {
   }
 
   return (
-    <AppLayout>
       <div className="space-y-6">
         <div>
           <h1 className="text-3xl font-bold font-headline">Set Your Goal</h1>
@@ -225,6 +223,5 @@ export default function GoalsPage() {
           </Card>
         </div>
       </div>
-    </AppLayout>
   );
 }

@@ -1,9 +1,7 @@
 import WorkoutLogger from '@/components/log-workout/workout-logger';
-import AppLayout from '@/components/AppLayout';
 
 export default function LogWorkoutPage() {
   return (
-    <AppLayout>
       <div className="space-y-6">
         <div>
           <h1 className="text-3xl font-bold font-headline">Log a Workout</h1>
@@ -17,6 +15,5 @@ export default function LogWorkoutPage() {
           </div>
         </div>
       </div>
-    </AppLayout>
   );
 }
