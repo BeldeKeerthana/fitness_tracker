@@ -1,5 +1,4 @@
 
-
 import Link from 'next/link';
 import { BarChart, HeartPulse, LayoutDashboard, Flower2, Target, Timer, Trophy, Watch, Brain } from 'lucide-react';
 import type { User } from '@/lib/data';
@@ -24,11 +23,14 @@ export default function AppLayout({
     searchParams,
 }: { 
     children: React.ReactNode,
-    searchParams?: { [key: string]: string | string[] | undefined };
+    searchParams: { [key: string]: string | string[] | undefined };
 }) {
+  const name = (searchParams?.name as string) || 'Alex';
+  const email = (searchParams?.email as string) || 'alex@example.com';
+  
   const user: User = {
-    name: searchParams?.name as string || 'Alex',
-    email: searchParams?.email as string || 'alex@example.com',
+    name,
+    email,
     avatar: '',
   };
 

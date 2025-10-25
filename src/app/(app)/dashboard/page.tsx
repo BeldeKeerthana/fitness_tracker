@@ -70,14 +70,14 @@ function DailySummarySkeleton() {
     )
 }
 
-export default function DashboardPage({ searchParams }: { searchParams: { name?: string } }) {
+export default function DashboardPage({ searchParams }: { searchParams: { [key: string]: string | string[] | undefined } }) {
   const dailyData = {
     sleep: stats.find(s => s.title === 'Sleep')?.value ?? 'N/A',
     steps: stats.find(s => s.title === 'Steps')?.value ?? 'N/A',
     water: '5 glasses', // Example data, will be dynamic later
   };
 
-  const userName = searchParams.name || user.name;
+  const userName = (searchParams?.name as string) || user.name;
 
   return (
     <div className="flex-1 space-y-4">
