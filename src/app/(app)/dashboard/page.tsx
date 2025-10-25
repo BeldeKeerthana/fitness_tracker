@@ -71,12 +71,6 @@ function DailySummarySkeleton() {
 }
 
 export default function DashboardPage() {
-  const dailyData = {
-    sleep: stats.find(s => s.title === 'Sleep')?.value ?? 'N/A',
-    steps: stats.find(s => s.title === 'Steps')?.value ?? 'N/A',
-    water: '5 glasses', // Example data, will be dynamic later
-  };
-
   const userName = cookies().get('user-name')?.value || user.name;
 
   return (
@@ -92,7 +86,7 @@ export default function DashboardPage() {
       <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-5">
         <div className="col-span-3">
           <Suspense fallback={<DailySummarySkeleton />}>
-            <DailySummary data={dailyData} />
+            <DailySummary />
           </Suspense>
         </div>
         <div className="col-span-2">

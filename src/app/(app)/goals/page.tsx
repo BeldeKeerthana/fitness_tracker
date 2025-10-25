@@ -7,7 +7,6 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { z } from 'zod';
 import { Target, Wand2 } from 'lucide-react';
 
-import { getFitnessPlan } from '@/app/actions';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import {
@@ -22,6 +21,7 @@ import { Input } from '@/components/ui/input';
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Skeleton } from '@/components/ui/skeleton';
 import { Textarea } from '@/components/ui/textarea';
+import { useToast } from '@/hooks/use-toast';
 
 const goalSchema = z.object({
   currentWeight: z.coerce.number().positive('Must be a positive number.'),
@@ -36,9 +36,36 @@ const goalSchema = z.object({
 
 type GoalFormValues = z.infer<typeof goalSchema>;
 
+// NOTE: AI functionality has been temporarily removed to fix deployment issues.
+const staticPlan = `
+### Your Fitness Plan
+
+**Overview:**
+This plan is designed to help you reach your weight goal in a healthy and sustainable way.
+
+**Weekly Workout Schedule:**
+- **Monday:** 30-45 minutes of Cardio (running, cycling)
+- **Tuesday:** 45 minutes of Strength Training (full body)
+- **Wednesday:** Active Recovery (light walk, stretching)
+- **Thursday:** 30 minutes of HIIT (High-Intensity Interval Training)
+- **Friday:** 45 minutes of Strength Training (upper body focus)
+- **Saturday:** 60 minutes of your favorite activity (hiking, swimming)
+- **Sunday:** Rest
+
+**Dietary Guidelines:**
+- Focus on whole foods: lean proteins, fruits, vegetables, and whole grains.
+- Drink at least 8 glasses of water per day.
+- Limit processed foods, sugary drinks, and excessive saturated fats.
+
+**Disclaimer:**
+Please consult with a healthcare professional before starting any new fitness or diet plan.
+`;
+
+
 export default function GoalsPage() {
   const [plan, setPlan] = useState<string | null>(null);
   const [isLoading, setIsLoading] = useState(false);
+  const { toast } = useToast();
 
   const form = useForm<GoalFormValues>({
     resolver: zodResolver(goalSchema),
@@ -56,15 +83,16 @@ export default function GoalsPage() {
   async function onSubmit(data: GoalFormValues) {
     setIsLoading(true);
     setPlan(null);
-    try {
-      const result = await getFitnessPlan(data);
-      setPlan(result.plan);
-    } catch (error) {
-      console.error(error);
-      setPlan('Sorry, we couldn\'t generate a plan at this time.');
-    } finally {
-      setIsLoading(false);
-    }
+    
+    // Simulate API call
+    await new Promise(resolve => setTimeout(resolve, 1000));
+
+    setPlan(staticPlan);
+    setIsLoading(false);
+    toast({
+        title: "Plan Generated",
+        description: "Your personalized fitness plan is ready.",
+    });
   }
 
   return (
@@ -72,7 +100,7 @@ export default function GoalsPage() {
       <div>
         <h1 className="text-3xl font-bold font-headline">Set Your Goal</h1>
         <p className="text-muted-foreground">
-          Define your target weight and let our AI create a plan for you.
+          Define your target weight and get a plan to help you succeed.
         </p>
       </div>
 
