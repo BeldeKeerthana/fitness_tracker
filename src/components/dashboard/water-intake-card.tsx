@@ -18,7 +18,7 @@ import { Progress } from '@/components/ui/progress';
 const WATER_GOAL = 8;
 
 export default function WaterIntakeCard() {
-  const [glasses, setGlasses] = useState(0);
+  const [glasses, setGlasses] = useState(5);
 
   const handleAddGlass = () => {
     setGlasses((prev) => prev + 1);
@@ -39,7 +39,7 @@ export default function WaterIntakeCard() {
   const progress = (glasses / WATER_GOAL) * 100;
 
   return (
-    <Card className="flex flex-col">
+    <Card>
       <CardHeader>
         <CardTitle className="flex items-center gap-2">
             <GlassWater className="h-5 w-5 text-primary" />
@@ -65,11 +65,6 @@ export default function WaterIntakeCard() {
             </Button>
         </div>
       </CardContent>
-      <CardFooter className="mt-auto">
-         <Button onClick={handleLog} disabled={glasses === 0} variant="outline" className="w-full">
-            Log Intake & Reset
-        </Button>
-      </CardFooter>
     </Card>
   );
 }

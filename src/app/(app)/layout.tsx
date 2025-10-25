@@ -20,17 +20,12 @@ import Logo from '@/components/logo';
 
 export default function AppLayout({ 
     children,
-    searchParams,
 }: { 
     children: React.ReactNode,
-    searchParams: { [key: string]: string | string[] | undefined };
 }) {
-  const name = (searchParams?.name as string) || 'Alex';
-  const email = (searchParams?.email as string) || 'alex@example.com';
-  
   const user: User = {
-    name,
-    email,
+    name: 'Alex',
+    email: 'alex@example.com',
     avatar: '',
   };
 
@@ -62,7 +57,7 @@ export default function AppLayout({
             <SidebarMenu>
               {navLinks.map((link) => (
                 <SidebarMenuItem key={link.href}>
-                  <Link href={`${link.href}?name=${encodeURIComponent(user.name)}&email=${encodeURIComponent(user.email)}`}>
+                  <Link href={link.href}>
                     <SidebarMenuButton asChild tooltip={link.label}>
                       <span>
                         <link.icon />

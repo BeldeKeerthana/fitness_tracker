@@ -3,55 +3,55 @@
     {
       "id": "hero-login",
       "description": "A person working out, energetic and focused.",
-      "imageUrl": "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=2070&auto=format&fit=crop",
+      "imageUrl": "https://images.unsplash.com/photo-1674600625774-6b1e37a63b99?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxmaXRuZXNzJTIwd29ya291dHxlbnwwfHx8fDE3NjEzNjU0NjB8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "fitness workout"
     },
     {
       "id": "cardio-workout",
       "description": "A person running on a treadmill.",
-      "imageUrl": "https://picsum.photos/seed/2/400/300",
+      "imageUrl": "https://images.unsplash.com/photo-1758520706103-41d01f815640?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxjYXJkaW8lMjBydW5uaW5nfGVufDB8fHx8MTc2MTM4MjU4OXww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "cardio running"
     },
     {
       "id": "strength-workout",
       "description": "A person lifting weights.",
-      "imageUrl": "https://picsum.photos/seed/3/400/300",
+      "imageUrl": "https://images.unsplash.com/photo-1521804906057-1df8fdb718b7?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwyfHxzdHJlbmd0aCUyMHRyYWluaW5nfGVufDB8fHx8MTc2MTMyNDYwMXww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "strength training"
     },
     {
       "id": "balance-workout",
       "description": "A person doing yoga.",
-      "imageUrl": "https://picsum.photos/seed/4/400/300",
+      "imageUrl": "https://images.unsplash.com/photo-1490187291333-b4ece7bec2e0?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHx5b2dhJTIwYmFsYW5jZXxlbnwwfHx8fDE3NjEyNzQwODZ8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "yoga balance"
     },
     {
       "id": "legs-workout",
       "description": "A person doing squats.",
-      "imageUrl": "https://picsum.photos/seed/5/400/300",
+      "imageUrl": "https://images.unsplash.com/photo-1642267379398-c430d619019d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw2fHxsZWclMjB3b3Jrb3V0fGVufDB8fHx8MTc2MTM2MjA3MHww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "leg workout"
     },
     {
       "id": "user-avatar",
       "description": "User avatar placeholder",
-      "imageUrl": "https://picsum.photos/seed/avatar/200/200",
+      "imageUrl": "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxwZXJzb24lMjBwb3J0cmFpdHxlbnwwfHx8fDE3NjEzMjQyNDB8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "person portrait"
     },
     {
       "id": "steps-challenge",
       "description": "People hiking in the mountains.",
-      "imageUrl": "https://picsum.photos/seed/challenge1/400/300",
+      "imageUrl": "https://images.unsplash.com/photo-1736969875043-b3e17f6fb385?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw3fHxoaWtpbmclMjBzdGVwc3xlbnwwfHx8fDE3NjEzODI1ODl8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "hiking steps"
     },
     {
       "id": "calories-challenge",
       "description": "A high-intensity workout session.",
-      "imageUrl": "https://picsum.photos/seed/challenge2/400/300",
+      "imageUrl": "https://images.unsplash.com/photo-1739430548350-192a111a907d?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxpbnRlbnNlJTIwd29ya291dHxlbnwwfHx8fDE3NjEzODI1OTB8MA&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "intense workout"
     },
     {
       "id": "workout-time-challenge",
       "description": "A person looking at their fitness watch.",
-      "imageUrl": "https://picsum.photos/seed/challenge3/400/300",
+      "imageUrl": "https://images.unsplash.com/photo-1531121725570-c59fbd80d027?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8Zml0bmVzcyUyMHdhdGNofGVufDB8fHx8MTc2MTM4MjU4OXww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "fitness watch"
     },
     {
@@ -129,7 +129,7 @@
     {
       "id": "meditation",
       "description": "A serene meditation scene.",
-      "imageUrl": "https://picsum.photos/seed/meditate/1200/800",
+      "imageUrl": "https://images.unsplash.com/photo-1443059309078-bced073a51c5?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxtZWRpdGF0aW9uJTIwc2VyZW5lfGVufDB8fHx8MTc2MTMzNjQ5OXww&ixlib=rb-4.1.0&q=80&w=1080",
       "imageHint": "meditation serene"
     }
   ]

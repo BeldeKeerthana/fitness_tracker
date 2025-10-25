@@ -10,7 +10,6 @@ import { user } from '@/lib/data';
 import WaterIntakeCard from '@/components/dashboard/water-intake-card';
 import DailySummary from '@/components/dashboard/daily-summary';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
-import LogSleepCard from '@/components/dashboard/log-sleep-card';
 
 const stats: Stat[] = [
     {
@@ -89,16 +88,17 @@ export default function DashboardPage({ searchParams }: { searchParams: { [key: 
           <StatCard key={stat.title} stat={stat} />
         ))}
       </div>
-      <div className="grid gap-4 md:grid-cols-1 lg:grid-cols-7">
-        <div className="lg:col-span-4 grid gap-4">
-            <Suspense fallback={<DailySummarySkeleton />}>
-                <DailySummary data={dailyData} />
-            </Suspense>
-            <WorkoutHistory />
+      <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-5">
+        <div className="col-span-3">
+          <Suspense fallback={<DailySummarySkeleton />}>
+            <DailySummary data={dailyData} />
+          </Suspense>
         </div>
-        <div className="lg:col-span-3 grid gap-4 grid-rows-1">
+        <div className="col-span-2">
             <WaterIntakeCard />
-            <LogSleepCard />
+        </div>
+        <div className="col-span-5">
+            <WorkoutHistory />
         </div>
       </div>
     </div>
