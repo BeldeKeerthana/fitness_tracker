@@ -7,26 +7,29 @@ export function middleware(request: NextRequest) {
   const isAuthenticated = cookies().has('user-email');
   const { pathname } = request.nextUrl;
 
-  const isAppRoute = pathname.startsWith('/dashboard') || 
-                     pathname.startsWith('/workouts') ||
-                     pathname.startsWith('/yoga') ||
-                     pathname.startsWith('/challenges') ||
-                     pathname.startsWith('/goals') ||
-                     pathname.startsWith('/log-workout') ||
-                     pathname.startsWith('/reports') ||
-                     pathname.startsWith('/connect') ||
-                     pathname.startsWith('/mental-health');
+  const isPublicRoute = pathname === '/login' || pathname === '/onboarding';
+  
+  // The root home page is public
+  if (pathname === '/') {
+    // If logged in, redirect from home to dashboard
+    if (isAuthenticated) {
+        return NextResponse.redirect(new URL('/dashboard', request.url));
+    }
+    return NextResponse.next();
+  }
 
-  if (isAuthenticated) {
-    if (pathname === '/' || pathname === '/onboarding') {
-      return NextResponse.redirect(new URL('/dashboard', request.url));
+  // If logged in, redirect from public routes to dashboard
+  if (isAuthenticated && isPublicRoute) {
+    return NextResponse.redirect(new URL('/dashboard', request.url));
+  }
+
+  // If not logged in and trying to access a protected app route, redirect to login
+  if (!isAuthenticated && !isPublicRoute && pathname.startsWith('/')) {
+    const loginUrl = new URL('/login', request.url);
+    if (pathname !== '/') {
+        loginUrl.searchParams.set('redirect_to', pathname);
     }
-  } else {
-    if (isAppRoute) {
-      const loginUrl = new URL('/', request.url);
-      loginUrl.searchParams.set('redirect_to', pathname);
-      return NextResponse.redirect(loginUrl);
-    }
+    return NextResponse.redirect(loginUrl);
   }
 
   return NextResponse.next();
