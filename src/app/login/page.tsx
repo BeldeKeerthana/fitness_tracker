@@ -4,7 +4,6 @@
 import Image from 'next/image';
 import Link from 'next/link';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { handleLogin } from '@/app/actions';
 import { Button } from '@/components/ui/button';
 import {
   Card,
@@ -17,6 +16,8 @@ import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import Logo from '@/components/logo';
+import { handleLogin } from '@/app/auth/actions';
+import { FormEvent } from 'react';
 
 export default function LoginPage() {
   const loginImage = PlaceHolderImages.find((img) => img.id === 'hero-login');
@@ -24,13 +25,10 @@ export default function LoginPage() {
   const searchParams = useSearchParams();
   const redirectTo = searchParams.get('redirect_to') || '/dashboard';
 
-  const onLogin = async (formData: FormData) => {
-    // Store email in a cookie for onboarding
-    const email = formData.get('email') as string;
-    document.cookie = `user-email=${email}; path=/; max-age=3600`; // Expires in 1 hour
-
-    // Simulate login and redirect to onboarding
-    router.push(`/onboarding?redirect_to=${encodeURIComponent(redirectTo)}`);
+  const onLogin = async (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    const formData = new FormData(e.currentTarget);
+    await handleLogin(formData);
   };
 
   return (
@@ -44,7 +42,8 @@ export default function LoginPage() {
               Enter your email below to login to your account
             </p>
           </div>
-          <form action={onLogin} className="grid gap-4">
+          <form onSubmit={onLogin} className="grid gap-4">
+            <input type="hidden" name="redirect_to" value={redirectTo} />
             <div className="grid gap-2">
               <Label htmlFor="email">Email</Label>
               <Input
@@ -65,7 +64,7 @@ export default function LoginPage() {
                   Forgot your password?
                 </Link>
               </div>
-              <Input id="password" name="password" type="password" required />
+              <Input id="password" name="password" type="password" defaultValue="password" required />
             </div>
             <Button type="submit" className="w-full">
               Login
@@ -73,7 +72,7 @@ export default function LoginPage() {
           </form>
           <div className="mt-4 text-center text-sm">
             Don&apos;t have an account?{' '}
-            <Link href="/onboarding" className="underline">
+            <Link href={`/onboarding?redirect_to=${encodeURIComponent(redirectTo)}`} className="underline">
               Sign up
             </Link>
           </div>

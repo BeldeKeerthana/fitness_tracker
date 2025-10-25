@@ -2,7 +2,7 @@
 'use client';
 
 import { useSearchParams } from 'next/navigation';
-import { handleOnboarding } from '@/app/actions';
+import { handleOnboarding } from '@/app/auth/actions';
 import { Button } from '@/components/ui/button';
 import {
   Form,
