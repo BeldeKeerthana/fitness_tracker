@@ -2,7 +2,7 @@
 
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
-import { handleOnboarding } from '@/app/auth/actions';
+import { handleOnboarding } from '@/app/actions';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -40,7 +40,7 @@ export default function OnboardingPage() {
               </form>
               <div className="mt-4 text-center text-sm">
                   Already have an account?{' '}
-                  <Link href="/" className="underline">
+                  <Link href="/login" className="underline">
                   Sign in
                   </Link>
               </div>
