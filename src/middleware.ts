@@ -5,16 +5,19 @@ export function middleware(request: NextRequest) {
   const isAuthenticated = cookies().has('user-email');
   const { pathname } = request.nextUrl;
 
-  const isPublicPage = pathname.startsWith('/login') || pathname.startsWith('/onboarding') || pathname === '/';
+  // Allow access to the root page, login, and onboarding for everyone.
+  const isPublicPath = pathname === '/' || pathname.startsWith('/login') || pathname.startsWith('/onboarding');
 
-  if (!isAuthenticated && !isPublicPage) {
+  // If the user is authenticated and trying to access a public path (except the root), redirect them to dashboard.
+  if (isAuthenticated && (pathname.startsWith('/login') || pathname.startsWith('/onboarding'))) {
+    return NextResponse.redirect(new URL('/dashboard', request.url));
+  }
+
+  // If the user is not authenticated and trying to access a protected page, redirect to login.
+  if (!isAuthenticated && !isPublicPath) {
     const loginUrl = new URL('/login', request.url);
     loginUrl.searchParams.set('redirect_to', pathname);
     return NextResponse.redirect(loginUrl);
-  }
-
-  if (isAuthenticated && isPublicPage) {
-    return NextResponse.redirect(new URL('/dashboard', request.url));
   }
 
   return NextResponse.next();
