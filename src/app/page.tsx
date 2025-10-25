@@ -1,53 +1,69 @@
 
-'use client';
-
 import Link from 'next/link';
-import { handleLogin } from '@/app/auth/actions';
+import Image from 'next/image';
 import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
+import { PlaceHolderImages } from '@/lib/placeholder-images';
 import Logo from '@/components/logo';
-import { useSearchParams } from 'next/navigation';
 
-export default function LoginPage() {
-  const searchParams = useSearchParams();
-  const redirectTo = searchParams.get('redirect_to') || '/dashboard';
-
-  return (
-    <div className="flex items-center justify-center min-h-screen bg-background">
-      <Card className="w-full max-w-sm">
-          <CardHeader className="text-center">
-            <Logo className="mb-4" />
-            <CardTitle className="text-2xl font-bold font-headline">Welcome Back</CardTitle>
-            <CardDescription>Enter your email to sign in to your account</CardDescription>
-          </CardHeader>
-          <CardContent>
-            <form action={handleLogin} className="space-y-4">
-              <input type="hidden" name="redirect_to" value={redirectTo} />
-              <div className="space-y-2">
-                <Label htmlFor="email">Email</Label>
-                <Input
-                  id="email"
-                  type="email"
-                  name="email"
-                  placeholder="m@example.com"
-                  required
-                  defaultValue="alex@example.com"
-                />
-              </div>
-              <Button type="submit" className="w-full">
-                Sign In
-              </Button>
-            </form>
-            <div className="mt-4 text-center text-sm">
-              Don&apos;t have an account?{' '}
-              <Link href="/onboarding" className="underline">
-                Sign up
-              </Link>
-            </div>
-          </CardContent>
-        </Card>
-    </div>
-  );
+export default function HomePage() {
+    const heroImage = PlaceHolderImages.find(img => img.id === 'hero-login');
+    return (
+        <div className="flex flex-col min-h-screen">
+            <header className="px-4 lg:px-6 h-14 flex items-center">
+                <Link href="#" className="flex items-center justify-center" prefetch={false}>
+                    <Logo />
+                </Link>
+                <nav className="ml-auto flex gap-4 sm:gap-6">
+                    <Button asChild variant="ghost">
+                        <Link href="/login" prefetch={false}>
+                            Sign In
+                        </Link>
+                    </Button>
+                    <Button asChild>
+                        <Link href="/onboarding" prefetch={false}>
+                            Get Started
+                        </Link>
+                    </Button>
+                </nav>
+            </header>
+            <main className="flex-1">
+                <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 relative">
+                    {heroImage && (
+                        <Image
+                            src={heroImage.imageUrl}
+                            alt={heroImage.description}
+                            fill
+                            data-ai-hint={heroImage.imageHint}
+                            className="object-cover object-center z-0"
+                        />
+                    )}
+                    <div className="container px-4 md:px-6 relative z-10">
+                        <div className="grid gap-6 lg:grid-cols-[1fr_400px] lg:gap-12 xl:grid-cols-[1fr_600px]">
+                            <div className="bg-background/80 backdrop-blur-sm rounded-xl p-6 space-y-4">
+                                <div className="inline-block rounded-lg bg-muted px-3 py-1 text-sm">Your Fitness Journey Starts Here</div>
+                                <h1 className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none font-headline">
+                                    Achieve Your Fitness Goals with FitPulse
+                                </h1>
+                                <p className="max-w-[600px] text-muted-foreground md:text-xl">
+                                    FitPulse is your personal AI-powered fitness tracker. Get personalized workout plans, monitor your progress, and stay motivated.
+                                </p>
+                                <div className="flex flex-col gap-2 min-[400px]:flex-row">
+                                    <Button asChild size="lg">
+                                        <Link href="/onboarding" prefetch={false}>
+                                            Get Started for Free
+                                        </Link>
+                                    </Button>
+                                    <Button asChild variant="outline" size="lg">
+                                        <Link href="/login" prefetch={false}>
+                                            Sign In
+                                        </Link>
+                                    </Button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </section>
+            </main>
+        </div>
+    );
 }
