@@ -2,15 +2,14 @@ import { Suspense } from 'react';
 import WelcomeHeader from '@/components/dashboard/welcome-header';
 import StatCard from '@/components/dashboard/stat-card';
 import WorkoutHistory from '@/components/dashboard/workout-history';
-import { Bed, Flame, Footprints, Heart, GlassWater, Activity } from 'lucide-react';
+import { Bed, Flame, Footprints, Heart, Activity } from 'lucide-react';
 import type { Stat } from '@/lib/types';
 import { Skeleton } from '@/components/ui/skeleton';
 import { user } from '@/lib/data';
 import WaterIntakeCard from '@/components/dashboard/water-intake-card';
-import DailySummary from '@/components/dashboard/daily-summary';
+import DailySummary from '@/app/(app)/dashboard/daily-summary';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
 import { cookies } from 'next/headers';
-import AppLayout from '@/components/AppLayout';
 
 const stats: Stat[] = [
     {
@@ -74,7 +73,6 @@ export default function DashboardPage() {
   const userName = cookies().get('user-name')?.value || user.name;
 
   return (
-    <AppLayout>
       <div className="flex-1 space-y-4">
         <Suspense fallback={<WelcomeHeaderSkeleton />}>
           <WelcomeHeader name={userName} />
@@ -98,6 +96,5 @@ export default function DashboardPage() {
           </div>
         </div>
       </div>
-    </AppLayout>
   );
 }
