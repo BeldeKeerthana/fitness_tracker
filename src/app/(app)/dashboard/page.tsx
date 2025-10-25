@@ -10,6 +10,7 @@ import { user } from '@/lib/data';
 import WaterIntakeCard from '@/components/dashboard/water-intake-card';
 import DailySummary from '@/components/dashboard/daily-summary';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
+import { cookies } from 'next/headers';
 
 const stats: Stat[] = [
     {
@@ -69,14 +70,14 @@ function DailySummarySkeleton() {
     )
 }
 
-export default function DashboardPage({ searchParams }: { searchParams: { [key: string]: string | string[] | undefined } }) {
+export default function DashboardPage() {
   const dailyData = {
     sleep: stats.find(s => s.title === 'Sleep')?.value ?? 'N/A',
     steps: stats.find(s => s.title === 'Steps')?.value ?? 'N/A',
     water: '5 glasses', // Example data, will be dynamic later
   };
 
-  const userName = (searchParams?.name as string) || user.name;
+  const userName = cookies().get('user-name')?.value || user.name;
 
   return (
     <div className="flex-1 space-y-4">

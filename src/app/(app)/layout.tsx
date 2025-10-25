@@ -1,7 +1,7 @@
 
 import Link from 'next/link';
 import { BarChart, HeartPulse, LayoutDashboard, Flower2, Target, Timer, Trophy, Watch, Brain } from 'lucide-react';
-import type { User } from '@/lib/data';
+import { cookies } from 'next/headers';
 
 import {
   SidebarProvider,
@@ -23,9 +23,12 @@ export default function AppLayout({
 }: { 
     children: React.ReactNode,
 }) {
-  const user: User = {
-    name: 'Alex',
-    email: 'alex@example.com',
+  const userName = cookies().get('user-name')?.value;
+  const userEmail = cookies().get('user-email')?.value;
+
+  const user = {
+    name: userName || 'User',
+    email: userEmail || 'user@example.com',
     avatar: '',
   };
 

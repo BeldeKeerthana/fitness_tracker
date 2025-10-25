@@ -1,7 +1,8 @@
+
 'use client';
 
 import Link from 'next/link';
-import { handleLogin } from '@/app/actions';
+import { handleLogin } from '@/app/auth/actions';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -14,8 +15,7 @@ export default function LoginPage() {
   const redirectTo = searchParams.get('redirect_to') || '/dashboard';
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-background">
-      <Card className="w-full max-w-sm">
+    <Card className="w-full max-w-sm">
         <CardHeader className="text-center">
           <Logo className="mb-4" />
           <CardTitle className="text-2xl font-bold font-headline">Welcome Back</CardTitle>
@@ -47,6 +47,5 @@ export default function LoginPage() {
           </div>
         </CardContent>
       </Card>
-    </div>
   );
 }

@@ -1,8 +1,9 @@
+
 'use client';
 
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
-import { handleOnboarding } from '@/app/actions';
+import { handleOnboarding } from '@/app/auth/actions';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
@@ -14,7 +15,6 @@ export default function OnboardingPage() {
     const redirectTo = searchParams.get('redirect_to') || '/dashboard';
 
     return (
-        <div className="flex items-center justify-center min-h-screen bg-background">
         <Card className="w-full max-w-sm">
             <CardHeader className="text-center">
             <Logo className="mb-4" />
@@ -46,6 +46,5 @@ export default function OnboardingPage() {
             </div>
             </CardContent>
         </Card>
-        </div>
     );
 }
