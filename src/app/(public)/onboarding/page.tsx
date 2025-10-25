@@ -15,36 +15,38 @@ export default function OnboardingPage() {
     const redirectTo = searchParams.get('redirect_to') || '/dashboard';
 
     return (
-        <Card className="w-full max-w-sm">
-            <CardHeader className="text-center">
-            <Logo className="mb-4" />
-            <CardTitle className="text-2xl font-bold font-headline">Create an Account</CardTitle>
-            <CardDescription>
-                Let&apos;s get you started on your fitness journey.
-            </CardDescription>
-            </CardHeader>
-            <CardContent>
-            <form action={handleOnboarding} className="space-y-4">
-                <input type="hidden" name="redirect_to" value={redirectTo} />
-                <div className="space-y-2">
-                    <Label htmlFor="name">Name</Label>
-                    <Input id="name" name="name" placeholder="Alex" required />
-                </div>
-                <div className="space-y-2">
-                    <Label htmlFor="email">Email</Label>
-                    <Input id="email" type="email" name="email" placeholder="alex@example.com" required />
-                </div>
-                <Button type="submit" className="w-full">
-                Create Account
-                </Button>
-            </form>
-            <div className="mt-4 text-center text-sm">
-                Already have an account?{' '}
-                <Link href="/login" className="underline">
-                Sign in
-                </Link>
-            </div>
-            </CardContent>
-        </Card>
+        <div className="flex items-center justify-center min-h-screen bg-background">
+          <Card className="w-full max-w-sm">
+              <CardHeader className="text-center">
+              <Logo className="mb-4" />
+              <CardTitle className="text-2xl font-bold font-headline">Create an Account</CardTitle>
+              <CardDescription>
+                  Let&apos;s get you started on your fitness journey.
+              </CardDescription>
+              </CardHeader>
+              <CardContent>
+              <form action={handleOnboarding} className="space-y-4">
+                  <input type="hidden" name="redirect_to" value={redirectTo} />
+                  <div className="space-y-2">
+                      <Label htmlFor="name">Name</Label>
+                      <Input id="name" name="name" placeholder="Alex" required />
+                  </div>
+                  <div className="space-y-2">
+                      <Label htmlFor="email">Email</Label>
+                      <Input id="email" type="email" name="email" placeholder="alex@example.com" required />
+                  </div>
+                  <Button type="submit" className="w-full">
+                  Create Account
+                  </Button>
+              </form>
+              <div className="mt-4 text-center text-sm">
+                  Already have an account?{' '}
+                  <Link href="/" className="underline">
+                  Sign in
+                  </Link>
+              </div>
+              </CardContent>
+          </Card>
+        </div>
     );
 }

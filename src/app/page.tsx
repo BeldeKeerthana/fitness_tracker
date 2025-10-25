@@ -2,50 +2,52 @@
 'use client';
 
 import Link from 'next/link';
-import Image from 'next/image';
+import { handleLogin } from '@/app/auth/actions';
 import { Button } from '@/components/ui/button';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
 import Logo from '@/components/logo';
+import { useSearchParams } from 'next/navigation';
 
-export default function HomePage() {
-  const heroImage = PlaceHolderImages.find((img) => img.id === 'hero-login');
+export default function LoginPage() {
+  const searchParams = useSearchParams();
+  const redirectTo = searchParams.get('redirect_to') || '/dashboard';
 
   return (
-    <div className="relative min-h-screen">
-      <header className="absolute top-0 left-0 right-0 p-4 z-10">
-        <Logo />
-      </header>
-      <main className="flex items-center justify-center min-h-screen p-4">
-        <section className="w-full py-12 md:py-24 lg:py-32 xl:py-48 relative">
-            {heroImage && (
-                <Image
-                    src={heroImage.imageUrl}
-                    alt={heroImage.description}
-                    fill
-                    data-ai-hint={heroImage.imageHint}
-                    className="object-cover -z-10 brightness-50"
+    <div className="flex items-center justify-center min-h-screen bg-background">
+      <Card className="w-full max-w-sm">
+          <CardHeader className="text-center">
+            <Logo className="mb-4" />
+            <CardTitle className="text-2xl font-bold font-headline">Welcome Back</CardTitle>
+            <CardDescription>Enter your email to sign in to your account</CardDescription>
+          </CardHeader>
+          <CardContent>
+            <form action={handleLogin} className="space-y-4">
+              <input type="hidden" name="redirect_to" value={redirectTo} />
+              <div className="space-y-2">
+                <Label htmlFor="email">Email</Label>
+                <Input
+                  id="email"
+                  type="email"
+                  name="email"
+                  placeholder="m@example.com"
+                  required
+                  defaultValue="alex@example.com"
                 />
-            )}
-            <div className="container px-4 md:px-6 text-center text-white">
-            <div className="space-y-4">
-                <h1 className="text-4xl font-bold tracking-tighter sm:text-5xl md:text-6xl lg:text-7xl/none font-headline">
-                Your Personal AI Fitness Partner
-                </h1>
-                <p className="mx-auto max-w-[700px] text-gray-200 md:text-xl">
-                FitPulse helps you achieve your fitness goals with personalized workout plans, real-time tracking, and AI-powered insights.
-                </p>
+              </div>
+              <Button type="submit" className="w-full">
+                Sign In
+              </Button>
+            </form>
+            <div className="mt-4 text-center text-sm">
+              Don&apos;t have an account?{' '}
+              <Link href="/onboarding" className="underline">
+                Sign up
+              </Link>
             </div>
-            <div className="mt-8 space-x-4">
-                <Button asChild size="lg">
-                <Link href="/onboarding">Get Started</Link>
-                </Button>
-                <Button asChild variant="secondary" size="lg">
-                <Link href="/login">Sign In</Link>
-                </Button>
-            </div>
-            </div>
-        </section>
-      </main>
+          </CardContent>
+        </Card>
     </div>
   );
 }

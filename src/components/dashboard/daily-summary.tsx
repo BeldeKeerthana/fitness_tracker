@@ -10,7 +10,7 @@ export default async function DailySummary({ data }: { data: DailyActivityInput 
   const { summary, suggestions } = await getDailySummary(data);
 
   return (
-    <Card className="lg:col-span-4">
+    <Card className="lg:col-span-2">
       <CardHeader>
         <CardTitle className="flex items-center gap-2 font-headline">
           <Activity />

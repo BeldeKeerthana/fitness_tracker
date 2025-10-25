@@ -16,8 +16,8 @@ export default function WorkoutHistory() {
           <TableHeader>
             <TableRow>
               <TableHead>Activity</TableHead>
-              <TableHead className="hidden md:table-cell">Duration</TableHead>
-              <TableHead className="hidden md:table-cell">Calories</TableHead>
+              <TableHead>Duration</TableHead>
+              <TableHead>Calories</TableHead>
               <TableHead className="text-right">Date</TableHead>
             </TableRow>
           </TableHeader>
@@ -27,10 +27,10 @@ export default function WorkoutHistory() {
                 <TableCell>
                     <div className="font-medium">{workout.activity}</div>
                 </TableCell>
-                <TableCell className="hidden md:table-cell">
+                <TableCell>
                   <Badge variant="outline">{workout.duration}</Badge>
                 </TableCell>
-                <TableCell className="hidden md:table-cell">{workout.calories}</TableCell>
+                <TableCell>{workout.calories}</TableCell>
                 <TableCell className="text-right">{workout.date}</TableCell>
               </TableRow>
             ))}
