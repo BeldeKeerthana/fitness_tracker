@@ -7,31 +7,29 @@ export function middleware(request: NextRequest) {
   const isAuthenticated = cookies().has('user-email');
   const { pathname } = request.nextUrl;
 
-  const isPublicRoute = pathname === '/login' || pathname === '/onboarding';
-  
-  // The root home page is public
-  if (pathname === '/') {
-    // If logged in, redirect from home to dashboard
-    if (isAuthenticated) {
-        return NextResponse.redirect(new URL('/dashboard', request.url));
+  const publicRoutes = ['/', '/login', '/onboarding'];
+  const isPublicRoute = publicRoutes.includes(pathname);
+
+  // If user is authenticated
+  if (isAuthenticated) {
+    // If they visit a public route, redirect to dashboard
+    if (isPublicRoute) {
+      return NextResponse.redirect(new URL('/dashboard', request.url));
     }
+    // Otherwise, allow them to access the app route
     return NextResponse.next();
   }
 
-  // If logged in, redirect from public routes to dashboard
-  if (isAuthenticated && isPublicRoute) {
-    return NextResponse.redirect(new URL('/dashboard', request.url));
-  }
-
-  // If not logged in and trying to access a protected app route, redirect to login
-  if (!isAuthenticated && !isPublicRoute && pathname.startsWith('/')) {
+  // If user is not authenticated
+  // and they are trying to access a non-public route
+  if (!isPublicRoute) {
+    // Redirect them to the login page
     const loginUrl = new URL('/login', request.url);
-    if (pathname !== '/') {
-        loginUrl.searchParams.set('redirect_to', pathname);
-    }
+    loginUrl.searchParams.set('redirect_to', pathname);
     return NextResponse.redirect(loginUrl);
   }
 
+  // Allow access to public routes for unauthenticated users
   return NextResponse.next();
 }
 
