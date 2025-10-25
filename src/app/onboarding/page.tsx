@@ -1,3 +1,4 @@
+
 'use client';
 
 import { useSearchParams } from 'next/navigation';
@@ -17,10 +18,19 @@ import { RadioGroup, RadioGroupItem } from '@/components/ui/radio-group';
 import { Textarea } from '@/components/ui/textarea';
 import Logo from '@/components/logo';
 import { Label } from '@/components/ui/label';
+import { useEffect, useState } from 'react';
 
 export default function OnboardingPage() {
   const searchParams = useSearchParams();
-  const email = searchParams.get('email');
+  const redirectTo = searchParams.get('redirect_to');
+  const [email, setEmail] = useState<string | null>(null);
+
+  useEffect(() => {
+    // Reading cookie on client
+    const emailCookie = document.cookie.split('; ').find(row => row.startsWith('user-email='))?.split('=')[1];
+    setEmail(emailCookie || null);
+  }, []);
+
 
   return (
     <div className="container relative flex-col items-center justify-center md:grid lg:max-w-none lg:grid-cols-1 lg:px-0 min-h-screen">
@@ -37,6 +47,8 @@ export default function OnboardingPage() {
           </div>
           <form action={handleOnboarding} className="space-y-8">
             {email && <input type="hidden" name="email" value={email} />}
+            {redirectTo && <input type="hidden" name="redirect_to" value={redirectTo} />}
+
             <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
               <div className="space-y-2">
                 <Label htmlFor="name">Name</Label>
