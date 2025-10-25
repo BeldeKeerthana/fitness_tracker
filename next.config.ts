@@ -64,6 +64,12 @@ const nextConfig: NextConfig = {
         hostname: 'www.gaia.com',
         port: '',
         pathname: '/**',
+      },
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com',
+        port: '',
+        pathname: '/**',
       }
     ],
   },
