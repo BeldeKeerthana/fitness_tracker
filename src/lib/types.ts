@@ -72,9 +72,3 @@ export type YogaPose = {
     hint: string;
   };
 };
-
-// Types for AI functionality (currently using static data)
-export interface DailyActivityOutput {
-  summary: string;
-  suggestions: string[];
-}

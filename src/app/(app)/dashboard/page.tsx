@@ -7,7 +7,6 @@ import type { Stat } from '@/lib/types';
 import { Skeleton } from '@/components/ui/skeleton';
 import { user } from '@/lib/data';
 import WaterIntakeCard from '@/components/dashboard/water-intake-card';
-import DailySummary from '@/app/(app)/dashboard/daily-summary';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
 import { cookies } from 'next/headers';
 
@@ -47,28 +46,6 @@ function WelcomeHeaderSkeleton() {
   );
 }
 
-function DailySummarySkeleton() {
-    return (
-        <Card className="lg:col-span-3">
-            <CardHeader>
-                <CardTitle className="flex items-center gap-2 font-headline">
-                    <Activity />
-                    Daily Health Summary
-                </CardTitle>
-                <CardDescription>
-                    Here is a summary of your activity and AI-powered suggestions.
-                </CardDescription>
-            </CardHeader>
-            <CardContent className="space-y-4">
-                <Skeleton className="h-4 w-3/4" />
-                <Skeleton className="h-4 w-1/2" />
-                <Skeleton className="h-4 w-full" />
-                <Skeleton className="h-4 w-2/3" />
-            </CardContent>
-        </Card>
-    )
-}
-
 export default function DashboardPage() {
   const userName = cookies().get('user-name')?.value || user.name;
 
@@ -84,15 +61,10 @@ export default function DashboardPage() {
         </div>
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-5">
           <div className="col-span-3">
-            <Suspense fallback={<DailySummarySkeleton />}>
-              <DailySummary />
-            </Suspense>
+              <WorkoutHistory />
           </div>
           <div className="col-span-2">
               <WaterIntakeCard />
-          </div>
-          <div className="col-span-5">
-              <WorkoutHistory />
           </div>
         </div>
       </div>
