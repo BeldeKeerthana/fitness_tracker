@@ -5,21 +5,33 @@ export function middleware(request: NextRequest) {
   const isAuthenticated = cookies().has('user-email');
   const { pathname } = request.nextUrl;
 
-  // Allow access to the root page, login, and onboarding for everyone.
-  const isPublicPath = pathname === '/' || pathname.startsWith('/login') || pathname.startsWith('/onboarding');
+  // Define public paths that are always accessible
+  const isPublicPath = pathname.startsWith('/login') || pathname.startsWith('/onboarding');
+  const isHomePage = pathname === '/';
 
-  // If the user is authenticated and trying to access a public path (except the root), redirect them to dashboard.
-  if (isAuthenticated && (pathname.startsWith('/login') || pathname.startsWith('/onboarding'))) {
-    return NextResponse.redirect(new URL('/dashboard', request.url));
+  // If user is authenticated
+  if (isAuthenticated) {
+    // If they are on a public path (like login/onboarding), redirect to dashboard
+    if (isPublicPath) {
+      return NextResponse.redirect(new URL('/dashboard', request.url));
+    }
+    // If they are on the home page, redirect to dashboard
+    if (isHomePage) {
+        return NextResponse.redirect(new URL('/dashboard', request.url));
+    }
+  } 
+  // If user is not authenticated
+  else {
+    // And they are trying to access a protected route (not public, not home)
+    if (!isPublicPath && !isHomePage) {
+      // Redirect them to login, preserving the intended destination
+      const loginUrl = new URL('/login', request.url);
+      loginUrl.searchParams.set('redirect_to', pathname);
+      return NextResponse.redirect(loginUrl);
+    }
   }
 
-  // If the user is not authenticated and trying to access a protected page, redirect to login.
-  if (!isAuthenticated && !isPublicPath) {
-    const loginUrl = new URL('/login', request.url);
-    loginUrl.searchParams.set('redirect_to', pathname);
-    return NextResponse.redirect(loginUrl);
-  }
-
+  // Allow the request to proceed
   return NextResponse.next();
 }
 
