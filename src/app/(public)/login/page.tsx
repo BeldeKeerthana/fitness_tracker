@@ -1,13 +1,13 @@
 'use client';
 
 import Link from 'next/link';
-import { handleLogin } from '../actions';
+import { useSearchParams } from 'next/navigation';
+import { handleLogin } from '@/app/actions';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
 import Logo from '@/components/logo';
-import { useSearchParams } from 'next/navigation';
 
 export default function LoginPage() {
   const searchParams = useSearchParams();
