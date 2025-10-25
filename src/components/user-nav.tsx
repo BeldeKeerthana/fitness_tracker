@@ -13,7 +13,7 @@ import {
 } from '@/components/ui/dropdown-menu';
 import { PlaceHolderImages } from '@/lib/placeholder-images';
 import type { User } from '@/lib/data';
-import { handleLogout } from '@/app/actions';
+import { handleLogout } from '@/app/(public)/actions';
 import { LogOut, Settings, User as UserIcon } from 'lucide-react';
 
 export function UserNav({ user }: { user: User }) {
