@@ -50,14 +50,14 @@ function WelcomeHeaderSkeleton() {
 
 function DailySummarySkeleton() {
     return (
-        <Card className="lg:col-span-3">
+        <Card className="lg:col-span-2">
             <CardHeader>
                 <CardTitle className="flex items-center gap-2 font-headline">
                     <Activity />
                     Daily Health Summary
                 </CardTitle>
                 <CardDescription>
-                    Here is a summary of your activity and AI-powered suggestions.
+                    Here is a summary of your activity and suggestions.
                 </CardDescription>
             </CardHeader>
             <CardContent className="space-y-4">
@@ -85,7 +85,7 @@ export default function DashboardPage() {
           ))}
         </div>
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-5">
-          <div className="col-span-3">
+          <div className="lg:col-span-3">
             <Suspense fallback={<DailySummarySkeleton />}>
               <DailySummary />
             </Suspense>

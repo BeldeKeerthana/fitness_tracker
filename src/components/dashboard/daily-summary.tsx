@@ -1,13 +1,25 @@
-
 'use server';
 
-import { getDailySummary } from '@/app/actions';
-import type { DailyActivityInput } from '@/ai/flows/summarize-daily-activity';
 import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
 import { Activity, Zap } from 'lucide-react';
+import type { DailyActivityOutput } from '@/lib/types';
 
-export default async function DailySummary({ data }: { data: DailyActivityInput }) {
-  const { summary, suggestions } = await getDailySummary(data);
+// NOTE: AI functionality has been temporarily removed to fix deployment issues.
+// This component now uses static data.
+function getStaticSummary(): DailyActivityOutput {
+    return {
+        summary: "You had a balanced day! You're making good progress on your goals. Consistency is key, so keep up the great work and listen to your body.",
+        suggestions: [
+            "Try to get to bed 15 minutes earlier tonight.",
+            "Add a 10-minute walk after lunch tomorrow.",
+            "Drink an extra glass of water in the morning.",
+        ],
+    };
+}
+
+
+export default async function DailySummary() {
+  const { summary, suggestions } = getStaticSummary();
 
   return (
     <Card className="lg:col-span-2">
@@ -17,7 +29,7 @@ export default async function DailySummary({ data }: { data: DailyActivityInput 
           Daily Health Summary
         </CardTitle>
         <CardDescription>
-          Here is a summary of your activity and AI-powered suggestions.
+          Here is a summary of your activity and suggestions.
         </CardDescription>
       </CardHeader>
       <CardContent className="space-y-4">

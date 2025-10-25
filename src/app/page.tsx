@@ -1,49 +1,52 @@
+'use client';
 
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
-import Logo from '@/components/logo';
 import Link from 'next/link';
-import Image from 'next/image';
-import { PlaceHolderImages } from '@/lib/placeholder-images';
+import { useSearchParams } from 'next/navigation';
+import { handleLogin } from '@/app/actions';
+import { Button } from '@/components/ui/button';
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import Logo from '@/components/logo';
 
-export default function RootPage() {
-  const heroImage = PlaceHolderImages.find((img) => img.id === 'hero-login');
+export default function LoginPage() {
+  const searchParams = useSearchParams();
+  const redirectTo = searchParams.get('redirect_to') || '/dashboard';
 
   return (
-    <div className="relative min-h-screen w-full">
-      {heroImage && (
-        <Image
-          src={heroImage.imageUrl}
-          alt={heroImage.description}
-          fill
-          data-ai-hint={heroImage.imageHint}
-          className="object-cover object-center"
-        />
-      )}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent" />
-      <div className="relative flex min-h-screen items-center justify-center">
-        <Card className="w-full max-w-md bg-card/80 backdrop-blur-sm text-card-foreground border-border/50">
-          <CardHeader className="text-center space-y-4">
-            <Logo className="text-primary-foreground" />
-            <CardTitle className="text-3xl font-bold font-headline text-primary-foreground">
-              Welcome to FitPulse
-            </CardTitle>
+    <div className="flex items-center justify-center min-h-screen bg-background">
+      <Card className="w-full max-w-sm">
+          <CardHeader className="text-center">
+            <Logo className="mb-4" />
+            <CardTitle className="text-2xl font-bold font-headline">Welcome Back</CardTitle>
+            <CardDescription>Enter your email to sign in to your account</CardDescription>
           </CardHeader>
-          <CardContent className="space-y-6 text-center">
-            <p className="text-primary-foreground/80">
-              Your personal AI-powered fitness tracker. Achieve your goals, one pulse at a time.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4">
-              <Button asChild className="w-full" size="lg">
-                <Link href="/login">Sign In</Link>
+          <CardContent>
+            <form action={handleLogin} className="space-y-4">
+              <input type="hidden" name="redirect_to" value={redirectTo} />
+              <div className="space-y-2">
+                <Label htmlFor="email">Email</Label>
+                <Input
+                  id="email"
+                  type="email"
+                  name="email"
+                  placeholder="m@example.com"
+                  required
+                  defaultValue="alex@example.com"
+                />
+              </div>
+              <Button type="submit" className="w-full">
+                Sign In
               </Button>
-              <Button asChild className="w-full" variant="secondary" size="lg">
-                <Link href="/onboarding">Get Started</Link>
-              </Button>
+            </form>
+            <div className="mt-4 text-center text-sm">
+              Don&apos;t have an account?{' '}
+              <Link href="/onboarding" className="underline">
+                Sign up
+              </Link>
             </div>
           </CardContent>
         </Card>
-      </div>
     </div>
   );
 }

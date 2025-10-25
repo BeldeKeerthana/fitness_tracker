@@ -1,4 +1,3 @@
-
 'use server';
 
 import { redirect } from 'next/navigation';
@@ -35,5 +34,5 @@ export async function handleOnboarding(formData: FormData) {
 export async function handleLogout() {
     cookies().delete('user-name');
     cookies().delete('user-email');
-    redirect('/login');
+    redirect('/');
 }

@@ -4,6 +4,7 @@ import { ArrowLeft } from 'lucide-react';
 import { workoutCategories, exercises } from '@/lib/data';
 import ExerciseCard from '@/components/workouts/exercise-card';
 import { Button } from '@/components/ui/button';
+import AppLayout from '@/components/AppLayout';
 
 export async function generateStaticParams() {
   return workoutCategories.map((category) => ({
@@ -20,27 +21,29 @@ export default function WorkoutCategoryPage({ params }: { params: { slug: string
   }
 
   return (
-    <div className="space-y-6">
-      <div>
-        <Button variant="ghost" className="mb-4" asChild>
-          <Link href="/workouts">
-            <ArrowLeft className="mr-2 h-4 w-4" />
-            Back to Workouts
-          </Link>
-        </Button>
-        <h1 className="text-4xl font-bold font-headline">{category.title}</h1>
-        <p className="text-lg text-muted-foreground mt-2">{category.description}</p>
-      </div>
-
+    <AppLayout>
       <div className="space-y-6">
-        {categoryExercises.length > 0 ? (
-          categoryExercises.map((exercise) => (
-            <ExerciseCard key={exercise.id} exercise={exercise} />
-          ))
-        ) : (
-          <p>No exercises found for this category yet. Check back soon!</p>
-        )}
+        <div>
+          <Button variant="ghost" className="mb-4" asChild>
+            <Link href="/workouts">
+              <ArrowLeft className="mr-2 h-4 w-4" />
+              Back to Workouts
+            </Link>
+          </Button>
+          <h1 className="text-4xl font-bold font-headline">{category.title}</h1>
+          <p className="text-lg text-muted-foreground mt-2">{category.description}</p>
+        </div>
+
+        <div className="space-y-6">
+          {categoryExercises.length > 0 ? (
+            categoryExercises.map((exercise) => (
+              <ExerciseCard key={exercise.id} exercise={exercise} />
+            ))
+          ) : (
+            <p>No exercises found for this category yet. Check back soon!</p>
+          )}
+        </div>
       </div>
-    </div>
+    </AppLayout>
   );
 }
