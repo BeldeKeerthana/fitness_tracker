@@ -1,10 +1,9 @@
 'use server';
 
 import { NextResponse, type NextRequest } from 'next/server';
-import { cookies } from 'next/headers';
 
 export function middleware(request: NextRequest) {
-  const isAuthenticated = cookies().has('user-email');
+  const isAuthenticated = request.cookies.has('user-email');
   const { pathname } = request.nextUrl;
 
   const publicRoutes = ['/', '/login', '/onboarding'];
