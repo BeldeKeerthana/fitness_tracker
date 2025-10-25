@@ -1,4 +1,3 @@
-
 'use client';
 
 import Link from 'next/link';
@@ -14,6 +13,10 @@ export default function LoginPage() {
   const searchParams = useSearchParams();
   const redirectTo = searchParams.get('redirect_to') || '/dashboard';
 
+  const onLogin = async (formData: FormData) => {
+    await handleLogin(formData);
+  };
+
   return (
     <div className="flex items-center justify-center min-h-screen bg-background">
       <Card className="w-full max-w-sm">
@@ -23,7 +26,7 @@ export default function LoginPage() {
           <CardDescription>Enter your email to sign in to your account</CardDescription>
         </CardHeader>
         <CardContent>
-          <form action={handleLogin} className="space-y-4">
+          <form action={onLogin} className="space-y-4">
             <input type="hidden" name="redirect_to" value={redirectTo} />
             <div className="space-y-2">
               <Label htmlFor="email">Email</Label>
