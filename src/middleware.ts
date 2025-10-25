@@ -7,23 +7,19 @@ export function middleware(request: NextRequest) {
   const { pathname } = request.nextUrl;
 
   const isPublicRoute = ['/login', '/onboarding'].includes(pathname);
-  const isAppRoute = pathname.startsWith('/dashboard') || 
-                   pathname.startsWith('/workouts') ||
-                   pathname.startsWith('/yoga') ||
-                   pathname.startsWith('/challenges') ||
-                   pathname.startsWith('/goals') ||
-                   pathname.startsWith('/log-workout') ||
-                   pathname.startsWith('/reports') ||
-                   pathname.startsWith('/connect') ||
-                   pathname.startsWith('/mental-health');
-
-
+  
+  // If the user is authenticated
   if (isAuthenticated) {
+    // If they try to access a public route or the root, redirect to dashboard
     if (isPublicRoute || pathname === '/') {
       return NextResponse.redirect(new URL('/dashboard', request.url));
     }
   } 
+  // If the user is not authenticated
   else {
+    // If they are trying to access a route that is not public and not the root page,
+    // redirect them to the login page.
+    const isAppRoute = !isPublicRoute && pathname !== '/';
     if (isAppRoute) {
       const loginUrl = new URL('/login', request.url);
       loginUrl.searchParams.set('redirect_to', pathname);
@@ -35,5 +31,6 @@ export function middleware(request: NextRequest) {
 }
 
 export const config = {
+  // Match all routes except for API routes, Next.js static files, and image files.
   matcher: ['/((?!api|_next/static|_next/image|favicon.ico).*)'],
 };

@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { handleLogin } from '@/app/actions';
+import { handleLogin } from '../actions';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Input } from '@/components/ui/input';
