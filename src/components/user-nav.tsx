@@ -15,9 +15,14 @@ import { PlaceHolderImages } from '@/lib/placeholder-images';
 import type { User } from '@/lib/data';
 import { handleLogout } from '@/app/actions';
 import { LogOut, Settings, User as UserIcon } from 'lucide-react';
+import { useState, useEffect } from 'react';
 
 export function UserNav({ user }: { user: User }) {
-  const avatarImage = PlaceHolderImages.find((img) => img.id === 'user-avatar');
+  const [avatarImage, setAvatarImage] = useState<any>(null);
+
+  useEffect(() => {
+    setAvatarImage(PlaceHolderImages.find((img) => img.id === 'user-avatar'));
+  }, [])
 
   return (
     <DropdownMenu>

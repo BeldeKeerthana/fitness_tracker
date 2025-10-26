@@ -37,7 +37,7 @@ export default function ConnectPage() {
 
   // Simulate heart rate fluctuation
   useEffect(() => {
-    let interval: NodeJS.Timeout;
+    let interval: NodeJS.Timeout | undefined;
     if (isConnected) {
       interval = setInterval(() => {
         setHeartRate((prev) => {
@@ -47,7 +47,11 @@ export default function ConnectPage() {
         });
       }, 2000);
     }
-    return () => clearInterval(interval);
+    return () => {
+      if (interval) {
+        clearInterval(interval);
+      }
+    };
   }, [isConnected]);
 
   return (

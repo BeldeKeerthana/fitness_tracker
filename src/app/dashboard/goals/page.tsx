@@ -108,7 +108,7 @@ export default function GoalsPage() {
               )}
               {plan && (
                 <div
-                  dangerouslySetInnerHTML={{ __html: plan.replace(/\\n/g, '<br />') }}
+                  dangerouslySetInnerHTML={{ __html: plan.replace(/\\n/g, '<br />').replace(/\n/g, '<br />') }}
                 />
               )}
               {!plan && !isLoading && (
