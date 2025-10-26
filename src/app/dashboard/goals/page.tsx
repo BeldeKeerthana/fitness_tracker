@@ -39,7 +39,7 @@ Please consult with a healthcare professional before starting any new fitness or
 
 
 export default function GoalsPage() {
-  const [plan, setPlan] = useState<string | null>(null);
+  const [plan, setPlan] = useState<string | null>(staticPlan);
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
 
@@ -64,7 +64,7 @@ export default function GoalsPage() {
         <div>
           <h1 className="text-3xl font-bold font-headline">Set Your Goal</h1>
           <p className="text-muted-foreground">
-            Define your target weight and get a plan to help you succeed.
+            Follow the generated plan to help you succeed.
           </p>
         </div>
 
@@ -76,44 +76,14 @@ export default function GoalsPage() {
                 Your Weight Goal
               </CardTitle>
               <CardDescription>
-                Tell us your goal, and we'll generate a personalized plan.
+                This is a sample plan. In a real application, you could fill out a form to generate a personalized one.
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <div className="space-y-6">
-                  <div className="grid grid-cols-2 gap-4">
-                    <div className="space-y-2">
-                      <Label>Current Weight (kg)</Label>
-                      <Input type="number" placeholder="75" defaultValue="75" />
-                    </div>
-                     <div className="space-y-2">
-                      <Label>Target Weight (kg)</Label>
-                      <Input type="number" placeholder="70" defaultValue="70" />
-                    </div>
-                  </div>
-                   <div className="space-y-2">
-                    <Label>Timeframe</Label>
-                    <Select defaultValue="3 months">
-                      <SelectTrigger>
-                        <SelectValue placeholder="Select a timeframe" />
-                      </SelectTrigger>
-                      <SelectContent>
-                        <SelectItem value="1 month">1 Month</SelectItem>
-                        <SelectItem value="3 months">3 Months</SelectItem>
-                        <SelectItem value="6 months">6 Months</SelectItem>
-                        <SelectItem value="1 year">1 Year</SelectItem>
-                      </SelectContent>
-                    </Select>
-                  </div>
-                  <div className="space-y-2">
-                    <Label>Workout Preferences</Label>
-                    <Textarea placeholder="e.g., cardio, strength training..." defaultValue="A mix of cardio and strength training." />
-                  </div>
-                  <Button onClick={generatePlan} disabled={isLoading} className="w-full">
+                <Button onClick={generatePlan} disabled={isLoading} className="w-full">
                     <Wand2 className="mr-2 h-4 w-4" />
-                    {isLoading ? 'Generating Plan...' : 'Generate My Plan'}
-                  </Button>
-                </div>
+                    {isLoading ? 'Generating Plan...' : 'Re-generate Plan'}
+                </Button>
             </CardContent>
           </Card>
 
@@ -138,7 +108,7 @@ export default function GoalsPage() {
               )}
               {plan && (
                 <div
-                  dangerouslySetInnerHTML={{ __html: plan.replace(/\n/g, '<br />') }}
+                  dangerouslySetInnerHTML={{ __html: plan.replace(/\\n/g, '<br />') }}
                 />
               )}
               {!plan && !isLoading && (
