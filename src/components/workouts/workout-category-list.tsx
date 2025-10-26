@@ -34,7 +34,7 @@ export default function WorkoutCategoryList() {
             </CardHeader>
             <CardFooter className="mt-auto">
               <Button variant="outline" className="w-full" asChild>
-                <Link href={`/workouts/${category.id}`}>
+                <Link href={`/dashboard/workouts/${category.id}`}>
                   View Exercises <ArrowRight className="ml-2 h-4 w-4" />
                 </Link>
               </Button>

@@ -1,5 +1,3 @@
-'use server';
-
 import { NextResponse, type NextRequest } from 'next/server';
 
 export function middleware(request: NextRequest) {
@@ -9,26 +7,19 @@ export function middleware(request: NextRequest) {
   const publicRoutes = ['/', '/login', '/onboarding'];
   const isPublicRoute = publicRoutes.includes(pathname);
 
-  // If user is authenticated
-  if (isAuthenticated) {
-    // If they visit a public route, redirect to dashboard
-    if (isPublicRoute) {
-      return NextResponse.redirect(new URL('/dashboard', request.url));
-    }
-    // Otherwise, allow them to access the app route
-    return NextResponse.next();
+  // If user is authenticated and visits a public route, redirect to dashboard
+  if (isAuthenticated && isPublicRoute) {
+    return NextResponse.redirect(new URL('/dashboard', request.url));
   }
 
-  // If user is not authenticated
-  // and they are trying to access a non-public route
-  if (!isPublicRoute) {
-    // Redirect them to the login page
+  // If user is not authenticated and tries to access a non-public route, redirect to login
+  if (!isAuthenticated && pathname.startsWith('/dashboard')) {
     const loginUrl = new URL('/login', request.url);
     loginUrl.searchParams.set('redirect_to', pathname);
     return NextResponse.redirect(loginUrl);
   }
 
-  // Allow access to public routes for unauthenticated users
+  // Allow access in all other cases
   return NextResponse.next();
 }
 

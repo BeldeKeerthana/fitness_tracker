@@ -23,7 +23,7 @@ export default function WorkoutCategoryPage({ params }: { params: { slug: string
       <div className="space-y-6">
         <div>
           <Button variant="ghost" className="mb-4" asChild>
-            <Link href="/workouts">
+            <Link href="/dashboard/workouts">
               <ArrowLeft className="mr-2 h-4 w-4" />
               Back to Workouts
             </Link>

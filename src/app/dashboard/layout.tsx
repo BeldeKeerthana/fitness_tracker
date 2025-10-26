@@ -33,14 +33,14 @@ export default function AppLayout({
 
   const navLinks = [
     { href: '/dashboard', label: 'Dashboard', icon: LayoutDashboard },
-    { href: '/workouts', label: 'Workouts', icon: HeartPulse },
-    { href: '/yoga', label: 'Yoga', icon: Flower2 },
-    { href: '/challenges', label: 'Challenges', icon: Trophy },
-    { href: '/goals', label: 'Goals', icon: Target },
-    { href: '/log-workout', label: 'Log Workout', icon: Timer },
-    { href: '/reports', label: 'Reports', icon: BarChart },
-    { href: '/connect', label: 'Connect to Watch', icon: Watch },
-    { href: '/mental-health', label: 'Mental Health', icon: Brain },
+    { href: '/dashboard/workouts', label: 'Workouts', icon: HeartPulse },
+    { href: '/dashboard/yoga', label: 'Yoga', icon: Flower2 },
+    { href: '/dashboard/challenges', label: 'Challenges', icon: Trophy },
+    { href: '/dashboard/goals', label: 'Goals', icon: Target },
+    { href: '/dashboard/log-workout', label: 'Log Workout', icon: Timer },
+    { href: '/dashboard/reports', label: 'Reports', icon: BarChart },
+    { href: '/dashboard/connect', label: 'Connect to Watch', icon: Watch },
+    { href: '/dashboard/mental-health', label: 'Mental Health', icon: Brain },
   ];
 
   return (
