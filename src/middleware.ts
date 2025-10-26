@@ -13,11 +13,18 @@ export function middleware(request: NextRequest) {
   }
 
   // If user is not authenticated and tries to access a non-public route, redirect to login
-  if (!isAuthenticated && pathname.startsWith('/dashboard')) {
+  if (!isAuthenticated && !isPublicRoute && pathname.startsWith('/dashboard')) {
     const loginUrl = new URL('/login', request.url);
     loginUrl.searchParams.set('redirect_to', pathname);
     return NextResponse.redirect(loginUrl);
   }
+
+  // If user is not authenticated and is not on a public route (e.g. some other route)
+  // redirect them to login. This is a catch-all for non-dashboard protected routes.
+  if (!isAuthenticated && !isPublicRoute) {
+    return NextResponse.redirect(new URL('/login', request.url));
+  }
+
 
   // Allow access in all other cases
   return NextResponse.next();

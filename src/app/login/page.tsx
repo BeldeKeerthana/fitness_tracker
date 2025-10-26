@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import { useSearchParams } from 'next/navigation';
 import { handleLogin } from '@/app/actions';
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
@@ -9,6 +10,9 @@ import { Label } from '@/components/ui/label';
 import Logo from '@/components/logo';
 
 export default function LoginPage() {
+  const searchParams = useSearchParams();
+  const redirectTo = searchParams.get('redirect_to') || '/dashboard';
+
   return (
     <div className="flex items-center justify-center min-h-screen bg-background">
       <Card className="w-full max-w-sm">
@@ -19,6 +23,7 @@ export default function LoginPage() {
           </CardHeader>
           <CardContent>
             <form action={handleLogin} className="space-y-4">
+              <input type="hidden" name="redirect_to" value={redirectTo} />
               <div className="space-y-2">
                 <Label htmlFor="email">Email</Label>
                 <Input
