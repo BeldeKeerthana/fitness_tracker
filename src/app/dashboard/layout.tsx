@@ -1,5 +1,5 @@
 import Link from 'next/link';
-import { BarChart, HeartPulse, LayoutDashboard, Flower2, Target, Timer, Trophy, Watch, Brain } from 'lucide-react';
+import { BarChart, HeartPulse, LayoutDashboard, Flower2, Target, Timer, Trophy, Watch } from 'lucide-react';
 import { cookies } from 'next/headers';
 
 import {
@@ -36,11 +36,8 @@ export default function AppLayout({
     { href: '/dashboard/workouts', label: 'Workouts', icon: HeartPulse },
     { href: '/dashboard/yoga', label: 'Yoga', icon: Flower2 },
     { href: '/dashboard/challenges', label: 'Challenges', icon: Trophy },
-    { href: '/dashboard/goals', label: 'Goals', icon: Target },
     { href: '/dashboard/log-workout', label: 'Log Workout', icon: Timer },
     { href: '/dashboard/reports', label: 'Reports', icon: BarChart },
-    { href: '/dashboard/connect', label: 'Connect to Watch', icon: Watch },
-    { href: '/dashboard/mental-health', label: 'Mental Health', icon: Brain },
   ];
 
   return (
