@@ -2,12 +2,11 @@ import { Suspense } from 'react';
 import WelcomeHeader from '@/components/dashboard/welcome-header';
 import StatCard from '@/components/dashboard/stat-card';
 import WorkoutHistory from '@/components/dashboard/workout-history';
-import { Bed, Flame, Footprints, Heart, Activity } from 'lucide-react';
+import { Bed, Flame, Footprints, Heart } from 'lucide-react';
 import type { Stat } from '@/lib/types';
 import { Skeleton } from '@/components/ui/skeleton';
 import { user } from '@/lib/data';
 import WaterIntakeCard from '@/components/dashboard/water-intake-card';
-import { Card, CardHeader, CardTitle, CardDescription, CardContent } from '@/components/ui/card';
 import { cookies } from 'next/headers';
 
 const stats: Stat[] = [
