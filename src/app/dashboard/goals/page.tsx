@@ -1,41 +1,18 @@
 'use client';
 
 import { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { zodResolver } from '@hookform/resolvers/zod';
-import { z } from 'zod';
 import { Target, Wand2 } from 'lucide-react';
 
 import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import {
-  Form,
-  FormControl,
-  FormField,
-  FormItem,
-  FormLabel,
-  FormMessage,
-} from '@/components/ui/form';
-import { Input } from '@/components/ui/input';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 import { Skeleton } from '@/components/ui/skeleton';
-import { Textarea } from '@/components/ui/textarea';
 import { useToast } from '@/hooks/use-toast';
+import { Textarea } from '@/components/ui/textarea';
+import { Input } from '@/components/ui/input';
+import { Label } from '@/components/ui/label';
+import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 
-const goalSchema = z.object({
-  currentWeight: z.coerce.number().positive('Must be a positive number.'),
-  targetWeight: z.coerce.number().positive('Must be a positive number.'),
-  timeframe: z.string().min(2, 'Please enter a timeframe.'),
-  // Hard-coded user data for now
-  gender: z.enum(['male', 'female', 'other']).default('male'),
-  age: z.coerce.number().int().positive().default(30),
-  height: z.coerce.number().positive().default(180),
-  workoutPreferences: z.string().default('A mix of cardio and strength training.'),
-});
 
-type GoalFormValues = z.infer<typeof goalSchema>;
-
-// NOTE: AI functionality has been temporarily removed to fix deployment issues.
 const staticPlan = `
 ### Your Fitness Plan
 
@@ -66,20 +43,8 @@ export default function GoalsPage() {
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
 
-  const form = useForm<GoalFormValues>({
-    resolver: zodResolver(goalSchema),
-    defaultValues: {
-      currentWeight: 75,
-      targetWeight: 70,
-      timeframe: '3 months',
-      age: 30,
-      height: 180,
-      gender: 'male',
-      workoutPreferences: 'A mix of cardio and strength training.',
-    },
-  });
 
-  async function onSubmit(data: GoalFormValues) {
+  async function generatePlan() {
     setIsLoading(true);
     setPlan(null);
     
@@ -115,78 +80,40 @@ export default function GoalsPage() {
               </CardDescription>
             </CardHeader>
             <CardContent>
-              <Form {...form}>
-                <form onSubmit={form.handleSubmit(onSubmit)} className="space-y-6">
+              <div className="space-y-6">
                   <div className="grid grid-cols-2 gap-4">
-                    <FormField
-                      control={form.control}
-                      name="currentWeight"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Current Weight (kg)</FormLabel>
-                          <FormControl>
-                            <Input type="number" placeholder="75" {...field} />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
-                    <FormField
-                      control={form.control}
-                      name="targetWeight"
-                      render={({ field }) => (
-                        <FormItem>
-                          <FormLabel>Target Weight (kg)</FormLabel>
-                          <FormControl>
-                            <Input type="number" placeholder="70" {...field} />
-                          </FormControl>
-                          <FormMessage />
-                        </FormItem>
-                      )}
-                    />
+                    <div className="space-y-2">
+                      <Label>Current Weight (kg)</Label>
+                      <Input type="number" placeholder="75" defaultValue="75" />
+                    </div>
+                     <div className="space-y-2">
+                      <Label>Target Weight (kg)</Label>
+                      <Input type="number" placeholder="70" defaultValue="70" />
+                    </div>
                   </div>
-                  <FormField
-                    control={form.control}
-                    name="timeframe"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Timeframe</FormLabel>
-                        <Select onValueChange={field.onChange} defaultValue={field.value}>
-                          <FormControl>
-                            <SelectTrigger>
-                              <SelectValue placeholder="Select a timeframe" />
-                            </SelectTrigger>
-                          </FormControl>
-                          <SelectContent>
-                            <SelectItem value="1 month">1 Month</SelectItem>
-                            <SelectItem value="3 months">3 Months</SelectItem>
-                            <SelectItem value="6 months">6 Months</SelectItem>
-                            <SelectItem value="1 year">1 Year</SelectItem>
-                          </SelectContent>
-                        </Select>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  <FormField
-                    control={form.control}
-                    name="workoutPreferences"
-                    render={({ field }) => (
-                      <FormItem>
-                        <FormLabel>Workout Preferences</FormLabel>
-                        <FormControl>
-                          <Textarea placeholder="e.g., cardio, strength training..." {...field} />
-                        </FormControl>
-                        <FormMessage />
-                      </FormItem>
-                    )}
-                  />
-                  <Button type="submit" disabled={isLoading} className="w-full">
+                   <div className="space-y-2">
+                    <Label>Timeframe</Label>
+                    <Select defaultValue="3 months">
+                      <SelectTrigger>
+                        <SelectValue placeholder="Select a timeframe" />
+                      </SelectTrigger>
+                      <SelectContent>
+                        <SelectItem value="1 month">1 Month</SelectItem>
+                        <SelectItem value="3 months">3 Months</SelectItem>
+                        <SelectItem value="6 months">6 Months</SelectItem>
+                        <SelectItem value="1 year">1 Year</SelectItem>
+                      </SelectContent>
+                    </Select>
+                  </div>
+                  <div className="space-y-2">
+                    <Label>Workout Preferences</Label>
+                    <Textarea placeholder="e.g., cardio, strength training..." defaultValue="A mix of cardio and strength training." />
+                  </div>
+                  <Button onClick={generatePlan} disabled={isLoading} className="w-full">
                     <Wand2 className="mr-2 h-4 w-4" />
                     {isLoading ? 'Generating Plan...' : 'Generate My Plan'}
                   </Button>
-                </form>
-              </Form>
+                </div>
             </CardContent>
           </Card>
 
