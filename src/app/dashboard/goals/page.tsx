@@ -7,51 +7,59 @@ import { Button } from '@/components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
 import { Skeleton } from '@/components/ui/skeleton';
 import { useToast } from '@/hooks/use-toast';
-import { Textarea } from '@/components/ui/textarea';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from '@/components/ui/select';
 
+function FitnessPlan() {
+  return (
+    <div className="prose prose-sm max-w-none prose-headings:font-headline prose-h3:text-lg prose-h3:mt-4 prose-h3:mb-2">
+      <h3>Your Fitness Plan</h3>
+      <p>
+        <strong>Overview:</strong>
+        <br />
+        This plan is designed to help you reach your weight goal in a healthy and sustainable way.
+      </p>
 
-const staticPlan = `
-### Your Fitness Plan
+      <strong>Weekly Workout Schedule:</strong>
+      <ul>
+        <li><strong>Monday:</strong> 30-45 minutes of Cardio (running, cycling)</li>
+        <li><strong>Tuesday:</strong> 45 minutes of Strength Training (full body)</li>
+        <li><strong>Wednesday:</strong> Active Recovery (light walk, stretching)</li>
+        <li><strong>Thursday:</strong> 30 minutes of HIIT (High-Intensity Interval Training)</li>
+        <li><strong>Friday:</strong> 45 minutes of Strength Training (upper body focus)</li>
+        <li><strong>Saturday:</strong> 60 minutes of your favorite activity (hiking, swimming)</li>
+        <li><strong>Sunday:</strong> Rest</li>
+      </ul>
 
-**Overview:**
-This plan is designed to help you reach your weight goal in a healthy and sustainable way.
-
-**Weekly Workout Schedule:**
-- **Monday:** 30-45 minutes of Cardio (running, cycling)
-- **Tuesday:** 45 minutes of Strength Training (full body)
-- **Wednesday:** Active Recovery (light walk, stretching)
-- **Thursday:** 30 minutes of HIIT (High-Intensity Interval Training)
-- **Friday:** 45 minutes of Strength Training (upper body focus)
-- **Saturday:** 60 minutes of your favorite activity (hiking, swimming)
-- **Sunday:** Rest
-
-**Dietary Guidelines:**
-- Focus on whole foods: lean proteins, fruits, vegetables, and whole grains.
-- Drink at least 8 glasses of water per day.
-- Limit processed foods, sugary drinks, and excessive saturated fats.
-
-**Disclaimer:**
-Please consult with a healthcare professional before starting any new fitness or diet plan.
-`;
+      <strong>Dietary Guidelines:</strong>
+      <ul>
+        <li>Focus on whole foods: lean proteins, fruits, vegetables, and whole grains.</li>
+        <li>Drink at least 8 glasses of water per day.</li>
+        <li>Limit processed foods, sugary drinks, and excessive saturated fats.</li>
+      </ul>
+        
+      <p>
+        <strong>Disclaimer:</strong>
+        <br />
+        Please consult with a healthcare professional before starting any new fitness or diet plan.
+      </p>
+    </div>
+  );
+}
 
 
 export default function GoalsPage() {
-  const [plan, setPlan] = useState<string | null>(staticPlan);
+  const [plan, setPlan] = useState<boolean>(true);
   const [isLoading, setIsLoading] = useState(false);
   const { toast } = useToast();
 
 
   async function generatePlan() {
     setIsLoading(true);
-    setPlan(null);
+    setPlan(false);
     
     // Simulate API call
     await new Promise(resolve => setTimeout(resolve, 1000));
 
-    setPlan(staticPlan);
+    setPlan(true);
     setIsLoading(false);
     toast({
         title: "Plan Generated",
@@ -94,7 +102,7 @@ export default function GoalsPage() {
                 Follow this plan to reach your target weight.
               </CardDescription>
             </CardHeader>
-            <CardContent className="prose prose-sm max-w-none prose-headings:font-headline prose-h3:text-lg prose-h3:mt-4 prose-h3:mb-2">
+            <CardContent>
               {isLoading && (
                 <div className="space-y-4">
                     <Skeleton className="h-4 w-3/4" />
@@ -107,9 +115,7 @@ export default function GoalsPage() {
                 </div>
               )}
               {plan && (
-                <div
-                  dangerouslySetInnerHTML={{ __html: plan.replace(/\\n/g, '<br />').replace(/\n/g, '<br />') }}
-                />
+                <FitnessPlan />
               )}
               {!plan && !isLoading && (
                 <p className="text-muted-foreground">

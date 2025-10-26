@@ -18,6 +18,7 @@ const WATER_GOAL = 8;
 
 export default function WaterIntakeCard() {
   const [glasses, setGlasses] = useState(5);
+  const { toast } = useToast();
 
   const handleAddGlass = () => {
     setGlasses((prev) => prev + 1);
